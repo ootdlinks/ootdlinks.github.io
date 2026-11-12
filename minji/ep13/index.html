@@ -100,6 +100,8 @@
 </script>
 <script>
   const $ = id => document.getElementById(id);
+  // 탭 순서: 최신 편이 가장 왼쪽, 오른쪽으로 갈수록 이전 편(편 번호 내림차순, 데이터에는 아무 순서로 넣어도 됨)
+  EPISODES.sort((x,y)=>(parseInt(String(y.tab).replace(/\D/g,''))||0)-(parseInt(String(x.tab).replace(/\D/g,''))||0));
   $('h1').textContent = CH.emoji + ' ' + CH.name + ' 스토어';
   document.title = CH.name + ' 스토어';
   document.querySelector('meta[property="og:title"]').content = CH.name + ' 스토어';
@@ -133,7 +135,7 @@
     const exact = hits.filter(h=>h.whole);
     return (exact.length ? exact : hits.filter(h=>h.all)).map(h=>lookHtml(h.ep,h.l,h.n,true));
   }
-  let curTab = Math.max(0, EPISODES.length-1);
+  let curTab = 0; // 가장 왼쪽(최신)이 기본
   function onSearch(){
     const q = $('q').value;
     $('searchbox').classList.toggle('has', !!q);
