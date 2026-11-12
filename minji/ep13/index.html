@@ -111,7 +111,7 @@
       '<img loading="lazy" src="img/'+CH.slug+'/'+it.img+'" alt="">' +
       '<div class="name">'+it.name+'</div><div class="price">'+won(it.price)+'</div>' +
       (it.ok?'':'<span class="tag">색상 확인 중</span>') + '<span class="go">보러가기 ›</span></a>').join('');
-    return '<section class="look">' + (label?'<div class="eplabel">'+ep.tab+(ep.pov?' · POV : '+ep.pov:'')+'</div>':'') + '<h2><span>Look '+(n+1)+'</span>'+l.name+'</h2>' + (gal?'<div class="gallery'+((l.imgs||[]).length===1?' one':'')+'">'+gal+'</div>':'') + '<div class="items">'+items+'</div>' + '</section>';
+    return '<section class="look">' + (label?'<div class="eplabel">'+ep.tab+(ep.pov?' · POV : '+ep.pov:'')+'</div>':'') + '<h2><span>'+(ep.labelPrefix||'OOTD')+' '+String(n+1).padStart(2,'0')+'</span>'+l.name+'</h2>' + (gal?'<div class="gallery'+((l.imgs||[]).length===1?' one':'')+'">'+gal+'</div>':'') + '<div class="items">'+items+'</div>' + '</section>';
   }
   function render(i){
     const ep = EPISODES[i]; if(!ep) return;
