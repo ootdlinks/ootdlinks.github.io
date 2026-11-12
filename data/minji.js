@@ -9,6 +9,7 @@ const P = (name, price, id, item, vendor, img, ok, hide) => {
 const EPISODES = [
 {
     tab: "EP011",
+    labelPrefix: "Look",
     pov: "전남친도 오는 결혼식, 인생 하객룩 찾아냄",
     looks: [
       { name: "시스루 리본 블라우스 하객룩", imgs: ["ep11s_l1_1.jpg"], items: [
@@ -48,6 +49,7 @@ const EPISODES = [
   },
   {
     tab: "EP012",
+    labelPrefix: "Look",
     pov: "소개팅 1트에 고백 받는 가을 코디 찾아냄",
     looks: [
       { name: "걸리시 소개팅 룩", imgs: ["ep12s_l1_1.jpg"], items: [
