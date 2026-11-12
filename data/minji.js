@@ -1,5 +1,5 @@
 // 민지(minji) 코디 데이터 — 옛 GitHub 백업에서 EP011~EP015를 복구(2026-11-12). 복구 대상: 인스타에 게시된 5개 릴스.
-// EP011~EP015는 LOOK 01~05(사용자 지시 2026-11-12). 새 편은 labelPrefix를 쓰지 않으면 OOTD 01부터 시작한다. 이후 편 추가: EPISODES 배열 끝에 객체를 넣고 img/minji/ 에 사진을 올린 뒤 python build.py
+// 탭 표시 이름은 label(없으면 tab). EP011~EP015 = LOOK 01~05, 앞으로 새 편은 label을 OOTD 01, OOTD 02 … 로 시작한다(사용자 지시 2026-11-12). 이후 편 추가: EPISODES 배열 끝에 객체를 넣고 img/minji/ 에 사진을 올린 뒤 python build.py
 const IMGS = {};
 const PLINK = {};
 const P = (name, price, id, item, vendor, img, ok, hide) => {
@@ -9,7 +9,7 @@ const P = (name, price, id, item, vendor, img, ok, hide) => {
 const EPISODES = [
 {
     tab: "EP011",
-    labelPrefix: "LOOK",
+    label: "LOOK 01",
     pov: "전남친도 오는 결혼식, 인생 하객룩 찾아냄",
     looks: [
       { name: "시스루 리본 블라우스 하객룩", imgs: ["ep11s_l1_1.jpg"], items: [
@@ -49,7 +49,7 @@ const EPISODES = [
   },
   {
     tab: "EP012",
-    labelPrefix: "LOOK",
+    label: "LOOK 02",
     pov: "소개팅 1트에 고백 받는 가을 코디 찾아냄",
     looks: [
       { name: "걸리시 소개팅 룩", imgs: ["ep12s_l1_1.jpg"], items: [
@@ -83,7 +83,7 @@ const EPISODES = [
   },
   {
     tab: "EP013",
-    labelPrefix: "LOOK",
+    label: "LOOK 03",
     pov: "영하 되자마자 장원영핏 겨울 코디 찾아냄",
     looks: [
       { name: "걸리시 무난 퍼 재킷 룩", imgs: ["ep13s_l1_1.jpg"], items: [
@@ -121,7 +121,7 @@ const EPISODES = [
   },
   {
     tab: "EP014",
-    labelPrefix: "LOOK",
+    label: "LOOK 04",
     pov: "오늘 코디 ㄹㅈㄷ라서 약속 없어도 일단 나감",
     looks: [
       { name: "다크 로맨틱 버건디 룩", imgs: ["ep14s_l1_1.jpg"], items: [
@@ -161,7 +161,7 @@ const EPISODES = [
   },
   {
     tab: "EP015",
-    labelPrefix: "LOOK",
+    label: "LOOK 05",
     pov: "추운데 롱패딩 말고 예쁘게 입고 싶은 사람",
     looks: [
       { name: "네이비 블랙 숏패딩 룩", imgs: ["ep15s_l1_1.jpg"], items: [
