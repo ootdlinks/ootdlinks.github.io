@@ -113,7 +113,7 @@
       '<img loading="lazy" src="img/'+CH.slug+'/'+it.img+'" alt="">' +
       '<div class="name">'+it.name+'</div><div class="price">'+won(it.price)+'</div>' +
       (it.ok?'':'<span class="tag">색상 확인 중</span>') + '<span class="go">보러가기 ›</span></a>').join('');
-    return '<section class="look">' + (label?'<div class="eplabel">'+ep.tab+(ep.pov?' · POV : '+ep.pov:'')+'</div>':'') + '<h2><span>'+(ep.labelPrefix||'OOTD')+' '+String(n+1).padStart(2,'0')+'</span>'+l.name+'</h2>' + (gal?'<div class="gallery'+((l.imgs||[]).length===1?' one':'')+'">'+gal+'</div>':'') + '<div class="items">'+items+'</div>' + '</section>';
+    return '<section class="look">' + (label?'<div class="eplabel">'+(ep.label||ep.tab)+(ep.pov?' · POV : '+ep.pov:'')+'</div>':'') + '<h2><span>Look '+(n+1)+'</span>'+l.name+'</h2>' + (gal?'<div class="gallery'+((l.imgs||[]).length===1?' one':'')+'">'+gal+'</div>':'') + '<div class="items">'+items+'</div>' + '</section>';
   }
   function render(i){
     const ep = EPISODES[i]; if(!ep) return;
@@ -128,7 +128,7 @@
     const whole = norm(q);
     const hits = [];
     EPISODES.forEach(ep=>ep.looks.forEach((l,n)=>{
-      const hay = norm([ep.tab, ep.pov, 'look'+(n+1), l.name].concat(l.items.filter(it=>!it.hide).map(it=>it.name)).join(' '));
+      const hay = norm([ep.tab, ep.label, ep.pov, 'look'+(n+1), l.name].concat(l.items.filter(it=>!it.hide).map(it=>it.name)).join(' '));
       hits.push({ep,l,n,whole:hay.includes(whole),all:toks.every(t=>hay.includes(t))});
     }));
     // 입력한 문구 그대로 들어 있는 룩을 먼저 쓰고, 없으면 낱말별로 모두 들어 있는 룩을 보여 준다
@@ -162,7 +162,7 @@
   document.addEventListener('keydown', e=>{ if(!lb.classList.contains('on')) return; if(e.key==='Escape') lbClose(); if(e.key==='ArrowLeft') lbMove(-1); if(e.key==='ArrowRight') lbMove(1); });
   let tx=null; lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
   lb.addEventListener('touchend',e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx; tx=null; if(Math.abs(dx)>50) lbMove(dx<0?1:-1); },{passive:true});
-  EPISODES.forEach((ep,i)=>{ const b=document.createElement('button'); b.className='tab'; b.role='tab'; b.textContent=ep.tab; b.onclick=()=>{ curTab=i; render(i); }; $('tabs').appendChild(b); });
+  EPISODES.forEach((ep,i)=>{ const b=document.createElement('button'); b.className='tab'; b.role='tab'; b.textContent=ep.label||ep.tab; b.onclick=()=>{ curTab=i; render(i); }; $('tabs').appendChild(b); });
   // 편별 주소(/ep4/ 등): 해당 편 폴더의 index.html이 window.ONLY_EP='EP004' 처럼 지정하면 그 편만 보여 준다
   if (window.ONLY_EP) {
     const idx = EPISODES.findIndex(e=>e.tab===window.ONLY_EP);
@@ -170,8 +170,8 @@
       curTab = idx;
       $('searchbox').style.display = 'none'; $('tabs').style.display = 'none';
       $('allbtn').style.display = 'block'; $('allbtn').href = CH.slug + '/';
-      document.querySelector('header p').textContent = EPISODES[idx].tab + ' 영상 속 그 옷, 룩 번호로 찾아보세요';
-      document.title = EPISODES[idx].tab + ' · ' + CH.name + ' 스토어';
+      document.querySelector('header p').textContent = (EPISODES[idx].label||EPISODES[idx].tab) + ' 영상 속 그 옷, 룩 번호로 찾아보세요';
+      document.title = (EPISODES[idx].label||EPISODES[idx].tab) + ' · ' + CH.name + ' 스토어';
     }
   }
   if(!EPISODES.length){ $('searchbox').style.display='none'; $('tabs').style.display='none'; $('looks').innerHTML='<p class="empty">코디 링크를 준비하고 있어요.<br>곧 영상 속 그 옷을 올려 둘게요 🤍</p>'; } else { render(curTab); }
