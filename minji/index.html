@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <base href="../">
-<script>window.CHANNEL="minji";</script>
+<script>window.CHANNEL="minji";window.DATA_V="20261112211359";</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="영상 속 그 옷, 룩 번호로 찾아보세요">
@@ -92,7 +92,7 @@
     사진은 AI로 생성한 이미지예요. 실제 상품과 색상·핏이 다를 수 있으니 상품 페이지의 색상·사이즈 옵션을 꼭 확인해 주세요.
   </footer>
 </div>
-<script src="channels.js?v=1"></script>
+<script>document.write('<script src="channels.js?v='+(window.DATA_V||1)+'"><\/script>');</script>
 <script>
   // window.CHANNEL(채널 폴더의 index.html이 지정)에 맞는 데이터·이름을 읽는다
   const CH = window.CHANNELS.find(c=>c.slug===window.CHANNEL) || window.CHANNELS[0];
