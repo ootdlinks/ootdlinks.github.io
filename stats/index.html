@@ -57,6 +57,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     <input id="key" type="password" placeholder="통계 열쇠" autocomplete="off">
     <select id="days"><option value="7">최근 7일</option><option value="14">최근 14일</option><option value="30" selected>최근 30일</option><option value="90">최근 90일</option></select>
     <button id="go">보기</button>
+    <label class="toggle" style="margin:0"><input type="checkbox" id="mask"> 채널명 가리기</label>
   </div>
   <div id="chtabs" class="ctl" style="margin-top:-4px"></div>
   <div id="stamp" class="stamp"></div>
@@ -65,7 +66,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
 </div>
 <script>
 (function(){
-  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261113180932';
+  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261113183543';
   var CHN={minji:'민지',nocturne:'서아',peachmilk:'하린',denimdaily:'지우'}, CHS=['minji','nocturne','peachmilk','denimdaily'];
   try{ var sc=localStorage.getItem('ootd_stats_ch'); if(sc==='all'||CHN[sc]) CH=sc; }catch(e){}
   var $=function(id){return document.getElementById(id)};
@@ -96,7 +97,9 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     }));
   }
   var catOf=function(){ return CH==='all'?CATALOG:CATALOG.filter(function(c){return c.ch===CH}); };
-  var chn=function(c){return CHN[c]||c};
+  var MASK=false, MK={minji:'A 채널',nocturne:'B 채널',peachmilk:'C 채널',denimdaily:'D 채널'}, LAST=null;
+  try{ MASK=localStorage.getItem('ootd_stats_mask')==='1'; }catch(e){}
+  var chn=function(c){return MASK?(MK[c]||'채널'):(CHN[c]||c)};
   var multi=function(){return CH==='all'};
 
   function group(rows,keyFn){ var m={}; rows.forEach(function(r){ var k=keyFn(r); (m[k]=m[k]||{key:k,items:0,clicks:0}); m[k].items++; m[k].clicks+=r.clicks; }); return Object.keys(m).map(function(k){return m[k]}).sort(function(a,b){ return (b.clicks/(b.items||1))-(a.clicks/(a.items||1)) || b.clicks-a.clicks; }); }
@@ -118,7 +121,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     if(multi()){
       var chs=(d.channels||[]);
       out+='<div class="card"><h2>채널 비교</h2><p class="hint">클릭률 = 클릭한 사람 ÷ 방문자. 채널별 반응을 나란히 봐요.</p><div class="scroll"><table><thead><tr><th>채널</th><th>방문자</th><th>페이지뷰</th><th>룩 본 사람</th><th>클릭한 사람</th><th>클릭률</th><th>클릭</th></tr></thead><tbody>'
-        +CHS.map(function(c){ var x=chs.filter(function(y){return y.ch===c})[0]||{views:0,visitors:0,seers:0,clicks:0,clickers:0}; return '<tr><td class="nm">'+esc(chn(c))+'<small>'+c+'</small></td><td>'+n0(x.visitors)+'</td><td>'+n0(x.views)+'</td><td>'+n0(x.seers)+'</td><td>'+n0(x.clickers)+'</td><td><b>'+pct(x.clickers,x.visitors)+'</b></td><td>'+n0(x.clicks)+'</td></tr>'; }).join('')
+        +CHS.map(function(c){ var x=chs.filter(function(y){return y.ch===c})[0]||{views:0,visitors:0,seers:0,clicks:0,clickers:0}; return '<tr><td class="nm">'+esc(chn(c))+'<small>'+(MASK?'':c)+'</small></td><td>'+n0(x.visitors)+'</td><td>'+n0(x.views)+'</td><td>'+n0(x.seers)+'</td><td>'+n0(x.clickers)+'</td><td><b>'+pct(x.clickers,x.visitors)+'</b></td><td>'+n0(x.clicks)+'</td></tr>'; }).join('')
         +'</tbody></table></div></div>';
     }
 
@@ -177,6 +180,8 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     [].forEach.call($('chtabs').querySelectorAll('button'),function(b){ b.onclick=function(){ CH=b.getAttribute('data-c'); try{localStorage.setItem('ootd_stats_ch',CH);}catch(e){} drawTabs(); if($('key').value.trim()) load(); }; });
   }
   drawTabs();
+  var mk=$('mask'); mk.checked=MASK;
+  mk.onchange=function(){ MASK=mk.checked; try{localStorage.setItem('ootd_stats_mask',MASK?'1':'0');}catch(e){} drawTabs(); if(LAST) render(LAST); };
   var ready=loadCatalog();
   function load(){
     var k=$('key').value.trim(); $('err').textContent='';
@@ -185,7 +190,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     $('go').disabled=true; $('stamp').textContent='불러오는 중…';
     fetch(U+'/rest/v1/rpc/get_ootd_stats',{method:'POST',headers:{apikey:K,Authorization:'Bearer '+K,'Content-Type':'application/json'},body:JSON.stringify({p_key:k,p_days:+$('days').value,p_ch:CH})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function(d){ try{ localStorage.setItem('ootd_stats_key',k); }catch(e){} return ready.then(function(){return d}); }).then(function(d){ render(d); var t=new Date(); $('stamp').textContent='최근 '+d.days+'일 · '+t.toLocaleString('ko-KR')+' 기준'; })
+      .then(function(d){ try{ localStorage.setItem('ootd_stats_key',k); }catch(e){} return ready.then(function(){return d}); }).then(function(d){ LAST=d; render(d); var t=new Date(); $('stamp').textContent='최근 '+d.days+'일 · '+t.toLocaleString('ko-KR')+' 기준'; })
       .catch(function(e){ $('stamp').textContent=''; $('err').textContent=(String(e.message)==='401'||String(e.message)==='403'||String(e.message)==='400')?'열쇠가 맞지 않아요.':'불러오지 못했어요. SQL(10_ootd_events.sql)을 실행했는지 확인해 주세요. ('+e.message+')'; })
       .finally(function(){ $('go').disabled=false; });
   }
