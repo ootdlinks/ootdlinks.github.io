@@ -16,6 +16,8 @@ h1{font-size:clamp(26px,5vw,40px);margin:8px 0 6px;letter-spacing:-.02em}
 .ctl{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}
 .ctl input,.ctl select{font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;min-width:0}
 .ctl input{flex:1 1 220px}
+.ctl input[type=checkbox]{flex:none;width:16px;height:16px;padding:0;margin:0}
+.ctl .toggle{flex:0 0 auto;white-space:nowrap;margin:0;padding:0 4px;align-self:center}
 .ctl button{font:inherit;font-weight:700;padding:12px 22px;border:0;border-radius:12px;background:var(--ink);color:#fff;cursor:pointer}
 .stamp{color:var(--sub);font-size:12.5px;margin:6px 0 18px;min-height:1em}
 .err{color:#b42318;font-size:14px;margin:8px 0}
@@ -66,13 +68,14 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
 </div>
 <script>
 (function(){
-  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261113183543';
+  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261113184521';
   var CHN={minji:'민지',nocturne:'서아',peachmilk:'하린',denimdaily:'지우'}, CHS=['minji','nocturne','peachmilk','denimdaily'];
   try{ var sc=localStorage.getItem('ootd_stats_ch'); if(sc==='all'||CHN[sc]) CH=sc; }catch(e){}
   var $=function(id){return document.getElementById(id)};
   var esc=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')};
   var n0=function(n){return (+n||0).toLocaleString('ko-KR')};
   var pct=function(a,b){return b?(Math.round(a/b*1000)/10)+'%':'-'};
+  var pctv=function(a,b){return (b&&a<=b)?'방문자의 '+pct(a,b):'방문 기록이 일부 빠진 기간'};
   var won=function(n){return n?n.toLocaleString('ko-KR')+'원':'-'};
   try{ var sk=localStorage.getItem('ootd_stats_key'); if(sk) $('key').value=sk; }catch(e){}
 
@@ -115,8 +118,8 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
       +'<div class="kpi"><small>방문자(추정)</small><b>'+n0(T.visitors)+'</b></div>'
       +'<div class="kpi"><small>페이지뷰</small><b>'+n0(T.views)+'</b></div>'
       +'<div class="kpi"><small>상품 클릭</small><b>'+n0(T.clicks)+'</b></div>'
-      +'<div class="kpi"><small>클릭한 사람</small><b>'+n0(T.clickers)+'</b><em>방문자의 '+pct(T.clickers,T.visitors)+'</em></div>'
-      +'<div class="kpi"><small>룩을 본 사람</small><b>'+n0(T.seers)+'</b><em>방문자의 '+pct(T.seers,T.visitors)+'</em></div></div>';
+      +'<div class="kpi"><small>클릭한 사람</small><b>'+n0(T.clickers)+'</b><em>'+pctv(T.clickers,T.visitors)+'</em></div>'
+      +'<div class="kpi"><small>룩을 본 사람</small><b>'+n0(T.seers)+'</b><em>'+pctv(T.seers,T.visitors)+'</em></div></div>';
 
     if(multi()){
       var chs=(d.channels||[]);
