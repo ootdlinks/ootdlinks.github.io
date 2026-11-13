@@ -58,7 +58,8 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
   <div class="ctl">
     <input id="key" type="password" placeholder="통계 열쇠" autocomplete="off">
     <select id="days"><option value="7">최근 7일</option><option value="14">최근 14일</option><option value="30" selected>최근 30일</option><option value="90">최근 90일</option></select>
-    <button id="go">보기</button>
+    <button id="go">새로고침</button>
+    <label class="toggle" style="margin:0"><input type="checkbox" id="auto"> 10초마다 자동</label>
     <label class="toggle" style="margin:0"><input type="checkbox" id="mask"> 채널명 가리기</label>
   </div>
   <div id="chtabs" class="ctl" style="margin-top:-4px"></div>
@@ -68,7 +69,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
 </div>
 <script>
 (function(){
-  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261113184521';
+  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261113214207';
   var CHN={minji:'민지',nocturne:'서아',peachmilk:'하린',denimdaily:'지우'}, CHS=['minji','nocturne','peachmilk','denimdaily'];
   try{ var sc=localStorage.getItem('ootd_stats_ch'); if(sc==='all'||CHN[sc]) CH=sc; }catch(e){}
   var $=function(id){return document.getElementById(id)};
@@ -185,20 +186,25 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
   drawTabs();
   var mk=$('mask'); mk.checked=MASK;
   mk.onchange=function(){ MASK=mk.checked; try{localStorage.setItem('ootd_stats_mask',MASK?'1':'0');}catch(e){} drawTabs(); if(LAST) render(LAST); };
+  var au=$('auto'), timer=null;
+  try{ au.checked=localStorage.getItem('ootd_stats_auto')==='1'; }catch(e){}
+  function setAuto(){ if(timer){clearInterval(timer);timer=null;} if(au.checked) timer=setInterval(function(){ if($('key').value.trim()&&!document.hidden) load(true); },10000); try{localStorage.setItem('ootd_stats_auto',au.checked?'1':'0');}catch(e){} }
+  au.onchange=setAuto;
   var ready=loadCatalog();
-  function load(){
-    var k=$('key').value.trim(); $('err').textContent='';
+  function load(quiet){
+    if($('go').disabled) return;
+    var k=$('key').value.trim(); if(quiet!==true) $('err').textContent='';
     if(U.indexOf('https://')!==0){ $('err').textContent='통계 주소가 빌드에 들어가지 않았어요(.env 확인).'; return; }
     if(!k){ $('err').textContent='열쇠를 입력해 주세요.'; return; }
-    $('go').disabled=true; $('stamp').textContent='불러오는 중…';
+    $('go').disabled=true; if(quiet!==true) $('stamp').textContent='불러오는 중…';
     fetch(U+'/rest/v1/rpc/get_ootd_stats',{method:'POST',headers:{apikey:K,Authorization:'Bearer '+K,'Content-Type':'application/json'},body:JSON.stringify({p_key:k,p_days:+$('days').value,p_ch:CH})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function(d){ try{ localStorage.setItem('ootd_stats_key',k); }catch(e){} return ready.then(function(){return d}); }).then(function(d){ LAST=d; render(d); var t=new Date(); $('stamp').textContent='최근 '+d.days+'일 · '+t.toLocaleString('ko-KR')+' 기준'; })
+      .then(function(d){ try{ localStorage.setItem('ootd_stats_key',k); }catch(e){} return ready.then(function(){return d}); }).then(function(d){ LAST=d; var zc=$('z')&&$('z').checked; var sy=window.pageYOffset; render(d); if(zc&&$('z')){ $('z').checked=true; $('z').onchange(); } window.scrollTo(0,sy); var t=new Date(); $('stamp').textContent='최근 '+d.days+'일 · '+t.toLocaleString('ko-KR')+' 기준'; })
       .catch(function(e){ $('stamp').textContent=''; $('err').textContent=(String(e.message)==='401'||String(e.message)==='403'||String(e.message)==='400')?'열쇠가 맞지 않아요.':'불러오지 못했어요. SQL(10_ootd_events.sql)을 실행했는지 확인해 주세요. ('+e.message+')'; })
       .finally(function(){ $('go').disabled=false; });
   }
-  $('go').onclick=load; $('key').addEventListener('keydown',function(e){ if(e.key==='Enter') load(); });
-  if($('key').value) load();
+  $('go').onclick=function(){ load(); }; $('key').addEventListener('keydown',function(e){ if(e.key==='Enter') load(); });
+  setAuto(); if($('key').value) load();
 })();
 </script>
 </body>
