@@ -199,7 +199,7 @@ const EPISODES = [
     ]
   },
   {
-    tab: "EP016",
+    tab: "OOTD01",
     label: "OOTD 01",
     pov: "패딩 벗는 순간 니트가 예뻐야 하는 겨울 데이트",
     looks: [
@@ -234,7 +234,7 @@ const EPISODES = [
     ]
   },
   {
-    tab: "EP017",
+    tab: "OOTD02",
     label: "OOTD 02",
     pov: "약속 12분 전인데 가디건만 4벌째 갈아입는 데이트날",
     looks: [
