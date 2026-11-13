@@ -209,9 +209,9 @@ const EPISODES = [
         {name:"블랙 스퀘어 통굽 롱부츠", price:31900, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPmp61A", img:"ootd1_blk_long_b.jpg"}
       ]},
       { name: "버건디 가디건 타탄 룩", imgs: ["ep16s_l2_1.jpg"], items: [
-        {name:"버건디 케이블 크롭 브이넥 니트 가디건", price:20020, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPrBdS0", img:"ootd1_burg_cardi.jpg"},
+        {name:"버건디와인 브이넥 루즈핏 크롭 니트 가디건", price:17310, ok:true, hide:false, url:"https://link.coupang.com/a/iDoxMpA9CK", img:"ootd2_burg2.jpg"},
         {name:"화이트 프릴 칼라 블라우스", price:17500, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPxyiIu", img:"ep16n_white_frill_blouse.jpg"},
-        {name:"레드 타탄 체크 A라인 스커트", price:29100, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPC3who", img:"ootd1_red_tartan.jpg"},
+        {name:"레드 체크 하이웨이스트 플리츠 미니스커트", price:21000, ok:true, hide:false, url:"https://link.coupang.com/a/iDoxMvE4xU", img:"ootd2_tartan2.jpg"},
         {name:"블랙 V컷 메리제인 플랫슈즈", price:29900, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPIhd2y", img:"ootd1_maryjane_chakhan.jpg"}
       ]},
       { name: "그레이 니트 데님 룩", imgs: ["ep16s_l3_1.jpg"], items: [
@@ -226,7 +226,7 @@ const EPISODES = [
         {name:"블랙 스판 니하이 롱부츠", price:47880, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGSEd6pU", img:"ootd1_kneehigh_a.jpg"}
       ]},
       { name: "핑크 가디건 화이트 룩", imgs: ["ep16s_l5_1.jpg"], items: [
-        {name:"연핑크 케이블 크롭 니트 가디건", price:17400, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGSJpdhk", img:"ootd1_pink_b.jpg"},
+        {name:"핑크 꽈배기 크롭 니트 가디건", price:19900, ok:true, hide:false, url:"https://link.coupang.com/a/iDoxMHAd0C", img:"ootd2_pink2.jpg"},
         {name:"아이보리 골지 터틀넥", price:7490, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGSPs8cu", img:"ep14n_elle_turtle_ivory.jpg"},
         {name:"화이트 하이웨스트 플리츠 미니스커트", price:9350, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGSV6PBY", img:"ep14n_elle_pleat_white.jpg"},
         {name:"베이지 스웨이드 롱부츠", price:35900, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGS4o10e", img:"ootd1_beige_b.jpg"}
@@ -244,20 +244,21 @@ const EPISODES = [
         {name:"그레이 A라인 플리츠 미니스커트", price:11320, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGVXvU4W", img:"ep12n_pleat_mini.jpg"},
         {name:"블랙 슬림핏 앵클부츠", price:42800, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGV3iJLU", img:"ep12n_ankle_boots.jpg"}
       ]},
-      { name: "아이보리 블레이저 룩", imgs: ["ep17s_l2_1.jpg"], items: [
-        {name:"아이보리 크롭 테일러드 블레이저", price:20100, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGV9Wrbo", img:"ootd1_blazer_c.jpg"},
-        {name:"블랙 슬림 골지 라운드넥 니트", price:14900, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGWfoEg0", img:"ep12n_rib_knit.jpg"},
-        {name:"블랙 밴딩 플리츠 A라인 미니스커트", price:13400, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPht0ou", img:"ootd1_blk_pleat.jpg"},
-        {name:"블랙 V컷 메리제인 플랫슈즈", price:29900, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPIhd2y", img:"ootd1_maryjane_chakhan.jpg"}
+      { name: "베이지 트위드 카멜 스커트 룩", imgs: ["ep17s_l2_1.jpg"], items: [
+        {name:"베이지 트위드 크롭 자켓 금장버튼", price:23250, ok:true, hide:false, url:"https://link.coupang.com/a/iDoxMNm71U", img:"ootd2_beige_jk.jpg"},
+        {name:"아이보리 골지 라운드넥 슬림 니트", price:14900, ok:true, hide:false, url:"https://link.coupang.com/a/iDoxMRY2Dc", img:"ootd2_cream_knit.jpg"},
+        {name:"카멜 스웨이드 플리츠 로우 미니스커트", price:22800, ok:true, hide:false, url:"https://link.coupang.com/a/iDoxMXmVcy", img:"ootd2_camel_pleat.jpg"},
+        {name:"크림 아이보리 골지 오버니 삭스", price:8900, ok:true, hide:false, url:"https://link.coupang.com/a/iDoxM2AxDo", img:"ootd2_cream_socks.jpg"},
+        {name:"다크브라운 통굽 페니 로퍼", price:22300, ok:true, hide:false, url:"https://link.coupang.com/a/iDoxM7e28q", img:"ootd2_brown_loafer.jpg"}
       ]},
       { name: "네이비 재킷 타탄 룩", imgs: ["ep17s_l3_1.jpg"], items: [
-        {name:"네이비 트위드 금장버튼 리본 크롭 자켓", price:58800, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGWkCgHQ", img:"ootd1_navy_bibidia.jpg"},
+        {name:"네이비 금장버튼 트위드 크롭 자켓", price:46340, ok:true, hide:false, url:"https://link.coupang.com/a/iDoxMz5Oxg", img:"ootd2_navy2.jpg"},
         {name:"화이트 프릴 칼라 블라우스", price:17500, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPxyiIu", img:"ep16n_white_frill_blouse.jpg"},
-        {name:"레드 타탄 체크 A라인 스커트", price:29100, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPC3who", img:"ootd1_red_tartan.jpg"},
+        {name:"레드 체크 하이웨이스트 플리츠 미니스커트", price:21000, ok:true, hide:false, url:"https://link.coupang.com/a/iDoxMvE4xU", img:"ootd2_tartan2.jpg"},
         {name:"블랙 클래식 로퍼", price:14240, ok:true, hide:false, url:"https://link.coupang.com/a/iDl7JKjavs", img:"ootd1_loafer.jpg"}
       ]},
       { name: "핑크 가디건 화이트 룩", imgs: ["ep17s_l4_1.jpg"], items: [
-        {name:"연핑크 케이블 크롭 니트 가디건", price:17400, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGSJpdhk", img:"ootd1_pink_b.jpg"},
+        {name:"핑크 꽈배기 크롭 니트 가디건", price:19900, ok:true, hide:false, url:"https://link.coupang.com/a/iDoxMHAd0C", img:"ootd2_pink2.jpg"},
         {name:"화이트 골지 슬림 세미크롭 티", price:10900, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGTfbMWG", img:"ep15n_white_rib_tee.jpg"},
         {name:"화이트 하이웨스트 플리츠 미니스커트", price:9350, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGSV6PBY", img:"ep14n_elle_pleat_white.jpg"},
         {name:"화이트 스니커즈", price:14990, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGWpPYs0", img:"ep12n_white_snk.jpg"}
