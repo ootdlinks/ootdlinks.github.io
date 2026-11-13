@@ -69,8 +69,8 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
 </div>
 <script>
 (function(){
-  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261113214207';
-  var CHN={minji:'민지',nocturne:'서아',peachmilk:'하린',denimdaily:'지우'}, CHS=['minji','nocturne','peachmilk','denimdaily'];
+  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261114001914';
+  var CHN={minji:'민지',yaar:'야르',peachmilk:'하린',denimdaily:'지우'}, CHS=['minji','yaar','peachmilk','denimdaily'];
   try{ var sc=localStorage.getItem('ootd_stats_ch'); if(sc==='all'||CHN[sc]) CH=sc; }catch(e){}
   var $=function(id){return document.getElementById(id)};
   var esc=function(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')};
@@ -101,7 +101,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     }));
   }
   var catOf=function(){ return CH==='all'?CATALOG:CATALOG.filter(function(c){return c.ch===CH}); };
-  var MASK=false, MK={minji:'A 채널',nocturne:'B 채널',peachmilk:'C 채널',denimdaily:'D 채널'}, LAST=null;
+  var MASK=false, MK={minji:'A 채널',yaar:'B 채널',peachmilk:'C 채널',denimdaily:'D 채널'}, LAST=null;
   try{ MASK=localStorage.getItem('ootd_stats_mask')==='1'; }catch(e){}
   var chn=function(c){return MASK?(MK[c]||'채널'):(CHN[c]||c)};
   var multi=function(){return CH==='all'};
