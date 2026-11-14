@@ -38,6 +38,7 @@ th{color:var(--sub);font-weight:600;font-size:12px}
 th:first-child,td:first-child{text-align:left}
 td.nm{white-space:normal;min-width:170px;text-align:left}
 td.nm small{display:block;color:var(--sub);font-size:11.5px}
+.vtabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}.vtabs button{border:1px solid var(--line);background:var(--card);color:var(--ink,inherit);border-radius:99px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer}.vtabs button.on{background:#111;color:#fff;border-color:#111}
 .bar{height:8px;border-radius:99px;background:var(--accent);min-width:2px}
 .barbg{background:var(--accent2);border-radius:99px;width:100%;min-width:60px}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
@@ -54,6 +55,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
 <div class="wrap">
   <span class="badge">관리자 전용</span>
   <h1>OOTD 클릭 통계</h1>
+  <div id="vtabs" class="vtabs"></div>
   <p class="lead">고객이 링크 페이지에서 실제로 어떤 옷을 눌렀는지 보여요. 열쇠가 있어야 숫자가 보여요. 개인을 알아볼 수 있는 정보는 저장하지 않아요.<br>내 방문을 빼려면 링크 페이지 주소 뒤에 <b>?nostat=1</b>을 붙여 한 번 열어 두세요(그 브라우저는 집계 제외, 해제는 ?nostat=0).</p>
   <div class="ctl">
     <input id="key" type="password" placeholder="통계 열쇠" autocomplete="off">
@@ -71,7 +73,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
 </div>
 <script>
 (function(){
-  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261114213518';
+  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261114213628';
   var CHN={minji:'민지',yaar:'야르',peachmilk:'하린',denimdaily:'지우'}, CHS=['minji','yaar','peachmilk','denimdaily'];
   try{ var sc=localStorage.getItem('ootd_stats_ch'); if(sc==='all'||CHN[sc]) CH=sc; }catch(e){}
   var $=function(id){return document.getElementById(id)};
@@ -242,11 +244,23 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     box.innerHTML=h;
   }
 
+
+  // 화면 전환 버튼: 클릭 통계 / 쿠팡 성과 / 상품 분석 (주소 끝 #coupang, #report 로 바로 열기, 마지막 선택은 기억)
+  var VIEWS=[['click','클릭 통계','out'],['coupang','쿠팡 성과','cp'],['report','상품 분석','rp']], VIEW='click';
+  try{ var hv=location.hash.replace('#',''); var sv=localStorage.getItem('ootd_stats_view'); VIEW=VIEWS.some(function(v){return v[0]===hv})?hv:(VIEWS.some(function(v){return v[0]===sv})?sv:'click'); }catch(e){}
+  function setView(v){
+    VIEW=v; try{ localStorage.setItem('ootd_stats_view',v); history.replaceState(null,'','#'+v); }catch(e){}
+    VIEWS.forEach(function(x){ var el=$(x[2]); if(el) el.style.display=(x[0]===v)?'':'none'; });
+    $('vtabs').innerHTML=VIEWS.map(function(x){ return '<button data-v="'+x[0]+'" class="'+(x[0]===v?'on':'')+'">'+x[1]+'</button>'; }).join('');
+    [].forEach.call($('vtabs').querySelectorAll('button'),function(b){ b.onclick=function(){ setView(b.getAttribute('data-v')); window.scrollTo(0,0); }; });
+  }
+
   function drawTabs(){
     $('chtabs').innerHTML=['all'].concat(CHS).map(function(c){ return '<button data-c="'+c+'" style="'+(c===CH?'':'opacity:.55')+'">'+(c==='all'?'전체 채널':chn(c))+'</button>'; }).join('');
     [].forEach.call($('chtabs').querySelectorAll('button'),function(b){ b.onclick=function(){ CH=b.getAttribute('data-c'); try{localStorage.setItem('ootd_stats_ch',CH);}catch(e){} drawTabs(); if($('key').value.trim()) load(); }; });
   }
   drawTabs();
+  setView(VIEW);
   var mk=$('mask'); mk.checked=MASK;
   mk.onchange=function(){ MASK=mk.checked; try{localStorage.setItem('ootd_stats_mask',MASK?'1':'0');}catch(e){} drawTabs(); if(LAST) render(LAST); };
   var au=$('auto'), timer=null;
