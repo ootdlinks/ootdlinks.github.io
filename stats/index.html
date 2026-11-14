@@ -39,6 +39,7 @@ th:first-child,td:first-child{text-align:left}
 td.nm{white-space:normal;min-width:170px;text-align:left}
 td.nm small{display:block;color:var(--sub);font-size:11.5px}
 .vtabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}.vtabs button{border:1px solid var(--line);background:var(--card);color:var(--ink,inherit);border-radius:99px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer}.vtabs button.on{background:#111;color:#fff;border-color:#111}
+.more{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:7px 14px;font-size:13px;cursor:pointer;margin:6px 8px 0 0}
 .bar{height:8px;border-radius:99px;background:var(--accent);min-width:2px}
 .barbg{background:var(--accent2);border-radius:99px;width:100%;min-width:60px}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
@@ -73,7 +74,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
 </div>
 <script>
 (function(){
-  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261114213628';
+  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261114213755';
   var CHN={minji:'민지',yaar:'야르',peachmilk:'하린',denimdaily:'지우'}, CHS=['minji','yaar','peachmilk','denimdaily'];
   try{ var sc=localStorage.getItem('ootd_stats_ch'); if(sc==='all'||CHN[sc]) CH=sc; }catch(e){}
   var $=function(id){return document.getElementById(id)};
@@ -151,20 +152,26 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
       if(clicked[0]) hints.push('가장 많이 눌린 상품: <b>'+esc(clicked[0].name)+'</b> ('+(multi()?esc(chn(clicked[0].ch))+' ':'')+esc(clicked[0].label)+' Look '+clicked[0].look+', '+clicked[0].clicks+'회)');
       hints.push('아직 표본이 적으면 참고만 하세요. 클릭이 룩당 수십 건 쌓이기 전에는 우연일 수 있어요.');
     } else hints.push('클릭이 아직 '+T.clicks+'건이라 경향을 말하기엔 일러요. 20건 이상 쌓이면 여기에 다음 편 아이템 힌트가 나와요.');
-    out+='<div class="card tip"><h2>다음 편 아이템 고를 때 참고</h2><ul style="margin:8px 0 0;padding-left:18px">'+hints.map(function(h){return '<li>'+h+'</li>'}).join('')+'</ul></div>';
+    var rpOut='';
+    rpOut+='<div class="card tip"><h2>다음 편 아이템 고를 때 참고</h2><ul style="margin:8px 0 0;padding-left:18px">'+hints.map(function(h){return '<li>'+h+'</li>'}).join('')+'</ul></div>';
 
-    out+='<div class="card"><h2>상품별 클릭 순위</h2><p class="hint">지금 링크 페이지에 걸려 있는 상품 전부를 보여요(0회 포함). 같은 사람이 여러 번 눌러도 "클릭"은 모두 세고, "사람"은 한 번만 세요.</p>'
-      +'<label class="toggle"><input type="checkbox" id="z"> 클릭 0회 상품도 보기</label><div class="scroll"><table id="itbl"><thead><tr><th>상품</th><th>가격</th><th>클릭</th><th>사람</th><th></th></tr></thead><tbody>'
-      +rows.map(function(r,i){ return '<tr class="'+(r.clicks?'':'zr')+'" '+(r.clicks?'':'hidden')+'><td class="nm">'+(i+1)+'. '+esc(r.name)+'<small>'+(multi()?esc(chn(r.ch))+' · ':'')+esc(r.label)+' · Look '+r.look+' '+esc(r.lookName)+'</small></td><td>'+won(r.price)+'</td><td><b>'+n0(r.clicks)+'</b></td><td>'+n0(r.people)+'</td><td style="min-width:90px"><div class="barbg"><div class="bar" style="width:'+Math.round(r.clicks/maxc*100)+'%"></div></div></td></tr>'; }).join('')
-      +'</tbody></table></div></div>';
+    var TOPN=8;
+    out+='<div class="card"><h2>상품별 클릭 순위 <small style="font-weight:400;color:var(--sub);font-size:12px">상위 '+TOPN+'개</small></h2>'
+      +'<div class="scroll"><table id="itbl"><thead><tr><th>상품</th><th>가격</th><th>클릭</th><th>사람</th></tr></thead><tbody>'
+      +rows.map(function(r,i){ var cls=r.clicks?(i>=TOPN?'mr':''):'zr'; return '<tr class="'+cls+'" '+(cls?'hidden':'')+'><td class="nm">'+(i+1)+'. '+esc(r.name)+'<small>'+(multi()?esc(chn(r.ch))+' · ':'')+esc(r.label)+' · Look '+r.look+'</small></td><td>'+won(r.price)+'</td><td><b>'+n0(r.clicks)+'</b></td><td>'+n0(r.people)+'</td></tr>'; }).join('')
+      +'</tbody></table></div>'
+      +(clicked.length>TOPN?'<button class="more" id="itmore">나머지 '+(clicked.length-TOPN)+'개 더 보기</button> ':'')
+      +'<label class="toggle" style="display:inline-flex"><input type="checkbox" id="z"> 클릭 0회 상품도 보기</label></div>';
 
     // 룩별
     var lk=(d.looks||[]).map(function(r){ var nm=''; CAT.some(function(c){ if(c.ch===r.ch&&c.ep===r.ep&&c.look===r.look){nm=c.lookName;return true} }); return {ch:r.ch,ep:r.ep,look:r.look,nm:nm,seen:r.seen,clicks:r.clicks,clickers:r.clickers,zooms:r.zooms}; }).sort(function(a,b){ return (b.seen?b.clickers/b.seen:0)-(a.seen?a.clickers/a.seen:0)||b.clicks-a.clicks; });
-    out+='<div class="card"><h2>룩별 클릭률</h2><p class="hint">"본 사람"은 그 룩이 화면에 충분히 보인 사람이에요(룩의 절반, 또는 화면의 40% 이상). 클릭률 = 클릭한 사람 ÷ 본 사람. 사진 확대는 갤러리를 눌러 크게 본 횟수예요.</p><div class="scroll"><table><thead><tr><th>룩</th><th>본 사람</th><th>클릭한 사람</th><th>클릭률</th><th>클릭</th><th>사진 확대</th></tr></thead><tbody>'
-      +lk.map(function(r){ return '<tr><td class="nm">'+(multi()?esc(chn(r.ch))+' · ':'')+esc(r.ep)+' · Look '+r.look+'<small>'+esc(r.nm)+'</small></td><td>'+n0(r.seen)+'</td><td>'+n0(r.clickers)+'</td><td><b>'+pct(r.clickers,r.seen)+'</b></td><td>'+n0(r.clicks)+'</td><td>'+n0(r.zooms)+'</td></tr>'; }).join('')+'</tbody></table></div></div>';
+    var LN=6;
+    out+='<div class="card"><h2>룩별 클릭률 <small style="font-weight:400;color:var(--sub);font-size:12px">상위 '+LN+'개 · 클릭한 사람 ÷ 본 사람</small></h2><div class="scroll"><table id="lktbl"><thead><tr><th>룩</th><th>본 사람</th><th>클릭률</th><th>클릭</th></tr></thead><tbody>'
+      +lk.map(function(r,i){ return '<tr class="'+(i>=LN?'ml':'')+'" '+(i>=LN?'hidden':'')+'><td class="nm">'+(multi()?esc(chn(r.ch))+' · ':'')+esc(r.ep)+' · Look '+r.look+'<small>'+esc(r.nm)+'</small></td><td>'+n0(r.seen)+'</td><td><b>'+pct(r.clickers,r.seen)+'</b></td><td>'+n0(r.clicks)+'</td></tr>'; }).join('')+'</tbody></table></div>'
+      +(lk.length>LN?'<button class="more" id="lkmore">나머지 '+(lk.length-LN)+'개 더 보기</button>':'')+'</div>';
 
-    out+=groupTable('종류별','상품 이름의 낱말로 종류를 짐작해요. "상품 1개당 클릭"이 높은 종류가 잘 팔릴 후보예요.',gC);
-    out+='<div class="grid2">'+groupTable('색 계열별','상품 이름에 적힌 색 낱말 기준이에요.',gK)+groupTable('가격대별','',gB)+'</div>';
+    rpOut+=groupTable('종류별','"상품 1개당 클릭"이 높은 종류가 잘 팔릴 후보예요.',gC);
+    rpOut+='<div class="grid2">'+groupTable('색 계열별','',gK)+groupTable('가격대별','',gB)+'</div>';
 
     // 일별
     var dm=Math.max.apply(null,(d.daily||[]).map(function(x){return Math.max(x.visitors,x.clickers)}).concat([1]));
@@ -179,8 +186,10 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     out+='<div class="grid2"><div class="card"><h2>편별</h2><div class="scroll"><table><thead><tr><th>편</th><th>방문</th><th>클릭</th></tr></thead><tbody>'+(d.eps||[]).map(function(x){return '<tr><td>'+(multi()?esc(chn(x.ch))+' · ':'')+esc(x.ep)+'</td><td>'+n0(x.views)+'</td><td>'+n0(x.clicks)+'</td></tr>'}).join('')+'</tbody></table></div><p class="hint" style="margin-top:8px">방문은 편별 주소(/ootd01/ 등)로 들어온 횟수만 잡혀요.</p></div>'
       +'<div class="card"><h2>검색창에 친 말</h2><p class="hint">고객이 찾는 옷이에요. 다음 편 소재 후보예요.</p>'+((d.searches||[]).length?'<div class="scroll"><table><tbody>'+d.searches.map(function(x){return '<tr><td>'+esc(x.q)+'</td><td>'+n0(x.n)+'</td></tr>'}).join('')+'</tbody></table></div>':'<p class="hint">아직 없어요.</p>')+'</div></div>';
     out+='<div class="card"><h2>기기</h2><div class="scroll"><table><thead><tr><th>기기</th><th>방문</th><th>클릭</th></tr></thead><tbody>'+(d.devices||[]).map(function(x){return '<tr><td>'+esc(x.device==='mobile'?'모바일':x.device==='desktop'?'컴퓨터':x.device)+'</td><td>'+n0(x.views)+'</td><td>'+n0(x.clicks)+'</td></tr>'}).join('')+'</tbody></table></div></div>';
-    $('out').innerHTML=out;
+    $('out').innerHTML=out; $('rp').innerHTML=rpOut+'<div id="rp2"></div>';
     var z=$('z'); if(z) z.onchange=function(){ [].forEach.call(document.querySelectorAll('#itbl .zr'),function(tr){ tr.hidden=!z.checked }); };
+    var im=$('itmore'); if(im) im.onclick=function(){ [].forEach.call(document.querySelectorAll('#itbl .mr'),function(tr){ tr.hidden=false }); im.remove(); };
+    var lm=$('lkmore'); if(lm) lm.onclick=function(){ [].forEach.call(document.querySelectorAll('#lktbl .ml'),function(tr){ tr.hidden=false }); lm.remove(); };
   }
 
 
@@ -223,7 +232,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     }).join(''):'<p class="hint">아직 데이터가 없어요.</p>')+'</div>';
   }
   function buildReport(cp){
-    var box=$('rp'); if(!box) return;
+    var box=$('rp2'); if(!box) return;
     var st=LAST||{}; var items=(st.items||[]), tot=st.totals||{};
     var bc={},bl={},bb={},nc={},nl={},nb={};
     items.forEach(function(x){ var n=x.item||'', c=+x.clicks||0, a=pick(CATS,n), l=pick(COLS,n), b=bandOf(x.price);
@@ -238,8 +247,8 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     if(hb.length) hints.push('가격대는 <b>'+esc(hb[0])+'</b> 상품이 잘 눌려요.');
     if(hs.length) hints.push('쿠팡에서 실제로 많이 팔린 종류는 <b>'+esc(hs.join(', '))+'</b>예요.');
     if(!hints.length) hints.push('아직 데이터가 적어서 뚜렷한 경향이 없어요.');
-    var h='<div class="card"><h2>다음 편 제작 힌트</h2><p class="hint">클릭 '+n0(tot.clicks)+'회, 방문자 '+n0(tot.visitors)+'명, 쿠팡 주문 '+n0(ords.length)+'건을 합쳐 본 결과예요. <b>표본이 작아서 방향 참고용</b>이에요(데이터가 쌓이면 더 믿을 만해져요). 쿠팡 주문은 확정 전 값이에요.</p><ul style="margin:0 0 0 18px;padding:0;line-height:1.9;font-size:14px">'+hints.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div>'
-      +'<div class="grid2">'+barsHtml('종류별 클릭 (상품 1개당)',bc,nc)+barsHtml('색 계열별 클릭 (상품 1개당)',bl,nl)+barsHtml('가격대별 클릭 (상품 1개당)',bb,nb)+barsHtml('쿠팡에서 팔린 종류 (수량)',sc,null,'개')+'</div>'
+    var h='<div class="card"><h2>쿠팡 판매까지 합친 힌트</h2><p class="hint">클릭 '+n0(tot.clicks)+'회, 방문자 '+n0(tot.visitors)+'명, 쿠팡 주문 '+n0(ords.length)+'건을 합쳐 본 결과예요. <b>표본이 작아서 방향 참고용</b>이에요(데이터가 쌓이면 더 믿을 만해져요). 쿠팡 주문은 확정 전 값이에요.</p><ul style="margin:0 0 0 18px;padding:0;line-height:1.9;font-size:14px">'+hints.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div>'
+      +barsHtml('쿠팡에서 팔린 종류 (수량)',sc,null,'개')
       +'<p class="hint">"상품 1개당 클릭"은 한 번이라도 눌린 상품만 센 값이라 실제보다 높게 나와요. 종류끼리 비교할 때만 보세요.</p>';
     box.innerHTML=h;
   }
