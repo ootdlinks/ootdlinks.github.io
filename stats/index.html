@@ -75,7 +75,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
 </div>
 <script>
 (function(){
-  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261115044329';
+  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261115074500';
   var CHN={minji:'민지',yaar:'야르',peachmilk:'하린',denimdaily:'지우'}, CHS=['minji','yaar','peachmilk','denimdaily'];
   try{ var sc=localStorage.getItem('ootd_stats_ch'); if(sc==='all'||CHN[sc]) CH=sc; }catch(e){}
   var $=function(id){return document.getElementById(id)};
@@ -268,7 +268,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
         var gain=function(v){ var h=(v.hist||[]); if(h.length<2) return ''; var dd=h[h.length-1].v-h[h.length-2].v; return dd?'<small style="color:'+(dd>0?'#0a7d3b':'#b42318')+'">'+(dd>0?'+':'')+mv(dd)+' (전 측정 대비)</small>':''; };
         var h='<div class="card"><h2>영상 분석</h2><p class="hint">릴스마다 조회수·음악·룩 구성·문구를 기록하고 무엇이 터졌는지 비교해요. 매일 조회수를 읽어 갱신하고, 새 영상이 올라오면 한 줄씩 더해요. 표본이 아직 적어서 아래 "가설"은 시험 중인 추측이에요.'+(d.updated?' 마지막 갱신 '+new Date(d.updated).toLocaleString('ko-KR')+'.':'')+'</p>'
           +'<div class="scroll"><table><thead><tr><th>편</th><th>조회수</th><th>음악(안무 구간)</th><th>길이</th><th>룩 구성</th><th>POV 문구</th></tr></thead><tbody>'
-          +(vs.length?vs.map(function(v){ return '<tr><td class="nm">'+esc(v.ep)+'<small>'+esc(v.posted||'')+' · '+esc(v.ch)+'</small></td><td><b>'+mv(v.views)+'</b>'+gain(v)+'<div style="height:6px;background:#eee;border-radius:3px;margin-top:4px;min-width:60px"><div style="height:6px;width:'+Math.max(3,Math.round(100*(+v.views)/mx))+'%;background:#111;border-radius:3px"></div></div></td><td>'+esc(v.music||'')+'</td><td>'+(v.dur?v.dur+'초':'-')+'</td><td>'+esc(v.looks)+'벌 · 다양성 '+esc(v.variety||'')+'<small>'+esc(v.looks_desc||'')+'</small></td><td>'+esc(v.pov||'')+'<small>'+esc(v.pov_type||'')+' · 작성 '+esc(v.author||'')+(v.note?' · '+esc(v.note):'')+'</small></td></tr>'; }).join(''):'<tr><td colspan="6" class="hint">기록이 없어요.</td></tr>')
+          +(vs.length?vs.map(function(v){ return '<tr><td class="nm">'+esc(v.ep)+(v.verdict?'<div style="display:inline-block;margin:2px 0;padding:2px 8px;border-radius:10px;background:#fde8e8;color:#b42318;font-size:12px;font-weight:700">'+esc(v.verdict)+'</div>':'')+'<small>'+esc(v.posted||'')+' · '+esc(v.ch)+'</small></td><td><b>'+mv(v.views)+'</b>'+gain(v)+'<div style="height:6px;background:#eee;border-radius:3px;margin-top:4px;min-width:60px"><div style="height:6px;width:'+Math.max(3,Math.round(100*(+v.views)/mx))+'%;background:#111;border-radius:3px"></div></div></td><td>'+esc(v.music||'')+'</td><td>'+(v.dur?v.dur+'초':'-')+'</td><td>'+esc(v.looks)+'벌 · 다양성 '+esc(v.variety||'')+'<small>'+esc(v.looks_desc||'')+'</small></td><td>'+esc(v.pov||'')+'<small>'+esc(v.pov_type||'')+' · 작성 '+esc(v.author||'')+(v.cause?' · 원인: '+esc(v.cause):'')+(v.note?' · '+esc(v.note):'')+'</small></td></tr>'; }).join(''):'<tr><td colspan="6" class="hint">기록이 없어요.</td></tr>')
           +'</tbody></table></div></div>';
         if(G.length) h+='<div class="card"><h2>왜 터졌나 가설</h2><ul style="margin:0 0 0 18px;padding:0;line-height:1.9;font-size:14px">'+G.map(function(g){ return '<li><b>'+esc(g.h)+'</b> <small>['+esc(g.status)+']</small><br><span style="color:var(--sub)">'+esc(g.evidence)+'</span></li>'; }).join('')+'</ul></div>';
         box.innerHTML=h;
