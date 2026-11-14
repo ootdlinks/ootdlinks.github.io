@@ -300,33 +300,30 @@ const EPISODES = [
   {
     tab: "OOTD04",
     label: "OOTD 04",
-    pov: "요즘 날씨에 무조건 성공하는 트위드 머플러 코디 발견했을 때",
+    pov: "미니에 롱부츠 신고 레이스까지 하면 폼 미친 소녀 코디",
     looks: [
-      { name: "숏패딩 체크 플리츠 룩", imgs: ["ootd4d_l1_1.jpg"], items: [
-        {name:"퀼팅 숏패딩 점퍼", price:25900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTF5Uc7U", img:"ootd4d_n_1_1.jpg"},
-        {name:"포근 라운드 니트", price:16900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDS84R2", img:"ootd4d_n_1_2.jpg"},
-        {name:"체크 플리츠 미니스커트", price:21390, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTFVszKK", img:"ootd4d_n_1_3.jpg"},
-        {name:"통굽 로퍼", price:31900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDJIM8G", img:"ootd4d_n_1_4.jpg"}
+      { name: "크림 니트 프릴 미니 룩", imgs: ["ootd4d_l1_1.jpg"], items: [
+        {name:"리쉬 브이넥 니트", price:15580, ok:true, hide:false, url:"https://link.coupang.com/a/iGzB85BvzM", img:"ootd4d_n_1_1.jpg"},
+        {name:"레이스 프릴 티어드 미니스커트", price:16130, ok:true, hide:false, url:"https://link.coupang.com/a/iGzB9fAZzg", img:"ootd4d_n_1_2.jpg"},
+        {name:"스웨이드 슬라우치 롱부츠", price:39200, ok:true, hide:false, url:"https://link.coupang.com/a/iGzB9bj0Oy", img:"ootd4d_n_1_3.jpg"},
+        {name:"레더 호보 숄더백", price:17900, ok:true, hide:false, url:"https://link.coupang.com/a/iGzB9PUEpM", img:"ootd4d_n_1_4.jpg"}
       ]},
-      { name: "트위드 데님 걸리시 룩", imgs: ["ootd4d_l2_1.jpg"], items: [
-        {name:"트위드 금장버튼 크롭 자켓", price:58800, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTFN30zk", img:"ootd4d_n_2_1.jpg"},
-        {name:"프릴 리본 블라우스", price:29900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDndBfg", img:"ootd4d_n_2_2.jpg"},
-        {name:"워싱 와이드 데님 팬츠", price:23900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDwHLNc", img:"ootd4d_n_2_3.jpg"},
-        {name:"스티치 레더 메리제인", price:17900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDGwj5E", img:"ootd4d_n_2_4.jpg"},
-        {name:"클래식 무지 니삭스", price:4900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDBxWN2", img:"ootd4d_n_2_5.jpg"}
+      { name: "카키 점퍼 레이스 룩", imgs: ["ootd4d_l2_1.jpg"], items: [
+        {name:"루즈핏 하프 야상 자켓", price:32800, ok:true, hide:false, url:"https://link.coupang.com/a/iGzB9E0udw", img:"ootd4d_n_2_1.jpg"},
+        {name:"레이스 브이넥 캐미솔", price:12920, ok:true, hide:false, url:"https://link.coupang.com/a/iGzCccgghg", img:"ootd4d_n_2_2.jpg"},
+        {name:"기모 울터치 A라인 미니스커트", price:19900, ok:true, hide:false, url:"https://link.coupang.com/a/iGzCcszNKu", img:"ootd4d_n_2_3.jpg"},
+        {name:"버클 통굽 롱부츠", price:28900, ok:true, hide:false, url:"https://link.coupang.com/a/iGzB9oUeqa", img:"ootd4d_n_2_4.jpg"}
       ]},
-      { name: "울코트 머플러 롱부츠 룩", imgs: ["ootd4d_l3_1.jpg"], items: [
-        {name:"울코트 숏자켓", price:59800, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDhXCPA", img:"ootd4d_n_3_1.jpg"},
-        {name:"목폴라 터틀넥 니트", price:21900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTGj1g0O", img:"ootd4d_n_3_2.jpg"},
-        {name:"피치기모 A라인 미니스커트", price:19900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTFZ9lUi", img:"ootd4d_n_3_3.jpg"},
-        {name:"니트 머플러", price:11400, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTGfTG7o", img:"ootd4d_n_3_4.jpg"},
-        {name:"스웨이드 롱부츠", price:21730, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTFJtTQO", img:"ootd4d_n_3_5.jpg"}
+      { name: "볼레로 카고 룩", imgs: ["ootd4d_l3_1.jpg"], items: [
+        {name:"크롭 볼레로 가디건", price:18810, ok:true, hide:false, url:"https://link.coupang.com/a/iGzB9KLlq8", img:"ootd4d_n_3_1.jpg"},
+        {name:"레이스 브이넥 슬리브리스 탑", price:17500, ok:true, hide:false, url:"https://link.coupang.com/a/iGzCb7gTbU", img:"ootd4d_n_3_2.jpg"},
+        {name:"카키 와이드 카고 팬츠", price:33100, ok:true, hide:false, url:"https://link.coupang.com/a/iGzB9tuk8G", img:"ootd4d_n_3_3.jpg"},
+        {name:"청키 레이스업 운동화", price:24860, ok:true, hide:false, url:"https://link.coupang.com/a/iGzCcnaqtw", img:"ootd4d_n_3_4.jpg"}
       ]},
-      { name: "오트밀 숏코트 슬랙스 룩", imgs: ["ootd4d_l4_1.jpg"], items: [
-        {name:"울 숏코트", price:33100, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDN1iI8", img:"ootd4d_n_4_1.jpg"},
-        {name:"베이직 라운드 니트", price:17900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDX7r9E", img:"ootd4d_n_4_2.jpg"},
-        {name:"기모 세미와이드 슬랙스", price:23490, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTGa3v6y", img:"ootd4d_n_4_3.jpg"},
-        {name:"지퍼 앵클부츠", price:23540, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDrgRGu", img:"ootd4d_n_4_4.jpg"}
+      { name: "노르딕 가디건 체크 미니 룩", imgs: ["ootd4d_l4_1.jpg"], items: [
+        {name:"노르딕 크롭 니트 가디건", price:25440, ok:true, hide:false, url:"https://link.coupang.com/a/iGzB9zbjxI", img:"ootd4d_n_4_1.jpg"},
+        {name:"체크 플리츠 미니스커트", price:21390, ok:true, hide:false, url:"https://link.coupang.com/a/iGzCchJwmO", img:"ootd4d_n_4_2.jpg"},
+        {name:"스웨이드 슬라우치 미들 부츠", price:42500, ok:true, hide:false, url:"https://link.coupang.com/a/iGzB9khLIO", img:"ootd4d_n_4_3.jpg"}
       ]}
     ]
   }
