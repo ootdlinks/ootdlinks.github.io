@@ -73,5 +73,39 @@ const EPISODES = [
         {name:"블랙 골지 오버니삭스", price:9990, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6Xe9sHc", img:"ootd2d_n_4_4.jpg"}
       ]}
     ]
+  },
+  {
+    tab: "OOTD03",
+    label: "OOTD 03",
+    pov: "퇴근하고 레더 재킷 하나 걸쳤더니 밤거리 주인공 됨",
+    looks: [
+      { name: "레더 크롭 롱부츠 룩", imgs: ["ootd3y_l1_1.jpg"], items: [
+        {name:"무광 레더 크롭 숏패딩", price:50750, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTKXHkPI", img:"ootd3y_n_1_1.jpg"},
+        {name:"골지 니트 이너", price:26800, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTLiHEsu", img:"ootd3y_n_1_2.jpg"},
+        {name:"하이웨이스트 PU 레더 스커트", price:19480, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTK9jTmC", img:"ootd3y_n_1_3.jpg"},
+        {name:"니하이 롱부츠", price:47880, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIbnO4O", img:"ootd3y_n_1_4.jpg"},
+        {name:"실버 이어링", price:5700, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIRXEAu", img:"ootd3y_n_1_5.jpg"}
+      ]},
+      { name: "브라운 레더 첼시 룩", imgs: ["ootd3y_l2_1.jpg"], items: [
+        {name:"쇼트 레더 재킷", price:77800, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIwFJPE", img:"ootd3y_n_2_1.jpg"},
+        {name:"목폴라 터틀넥 니트", price:21900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTLnXCSa", img:"ootd3y_n_2_2.jpg"},
+        {name:"하이웨이스트 와이드 슬랙스", price:17720, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTK2Xjfo", img:"ootd3y_n_2_3.jpg"},
+        {name:"스웨이드 첼시 앵클부츠", price:23900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIqSlYy", img:"ootd3y_n_2_4.jpg"}
+      ]},
+      { name: "더블 롱코트 머플러 룩", imgs: ["ootd3y_l3_1.jpg"], items: [
+        {name:"더블버튼 울 롱코트", price:87500, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIlkMqO", img:"ootd3y_n_3_1.jpg"},
+        {name:"기본 라운드 니트", price:17900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTKMBYXs", img:"ootd3y_n_3_2.jpg"},
+        {name:"모직 플리츠 미니스커트", price:13900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIM037A", img:"ootd3y_n_3_3.jpg"},
+        {name:"첼시 앵클부츠", price:47900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIgJFUy", img:"ootd3y_n_3_4.jpg"},
+        {name:"울혼방 머플러", price:19900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIWa6TY", img:"ootd3y_n_3_5.jpg"}
+      ]},
+      { name: "레더 블레이저 체인백 룩", imgs: ["ootd3y_l4_1.jpg"], items: [
+        {name:"레더 블레이저 자켓", price:44800, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTKSw13k", img:"ootd3y_n_4_1.jpg"},
+        {name:"목폴라 터틀넥 니트", price:21900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTLnXCSa", img:"ootd3y_n_4_2.jpg"},
+        {name:"워싱 와이드 데님 팬츠", price:23900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIBsopg", img:"ootd3y_n_4_3.jpg"},
+        {name:"에나멜 통굽 로퍼", price:14870, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIGUijI", img:"ootd3y_n_4_4.jpg"},
+        {name:"체인 크로스백", price:24350, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTLeFKcm", img:"ootd3y_n_4_5.jpg"}
+      ]}
+    ]
   }
 ];
