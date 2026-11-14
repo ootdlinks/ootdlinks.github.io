@@ -65,12 +65,13 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
   <div id="chtabs" class="ctl" style="margin-top:-4px"></div>
   <div id="stamp" class="stamp"></div>
   <div id="err" class="err"></div>
+  <div id="rp"></div>
   <div id="cp"></div>
   <div id="out"></div>
 </div>
 <script>
 (function(){
-  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261114204412';
+  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261114213518';
   var CHN={minji:'민지',yaar:'야르',peachmilk:'하린',denimdaily:'지우'}, CHS=['minji','yaar','peachmilk','denimdaily'];
   try{ var sc=localStorage.getItem('ootd_stats_ch'); if(sc==='all'||CHN[sc]) CH=sc; }catch(e){}
   var $=function(id){return document.getElementById(id)};
@@ -200,9 +201,45 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
           +'<h2 style="margin-top:18px">실제로 산 상품</h2><div class="scroll"><table><thead><tr><th>상품</th><th>수량</th><th>구매금액</th><th>수익</th></tr></thead><tbody>'
           +(ords.length?ords.slice(0,40).map(function(x){ return '<tr><td class="nm">'+esc((x.product||'').slice(0,60))+'<small>'+esc(x.day)+' · '+esc(nm(x.sub_id))+(x.category?' · '+esc(x.category):'')+'</small></td><td>'+n0(x.qty)+'</td><td>'+won(+x.gmv)+'</td><td>'+won(+x.commission)+'</td></tr>'; }).join(''):'<tr><td colspan="4" class="hint">구매가 아직 없어요.</td></tr>')
           +'</tbody></table></div></div>';
-        box.innerHTML=h;
+        box.innerHTML=h; try{ buildReport(d); }catch(e){}
       })
-      .catch(function(e){ box.innerHTML='<div class="card"><h2>쿠팡 파트너스 성과</h2><p class="hint">아직 불러올 수 없어요. 12_coupang.sql 실행과 coupang_sync.py 실행이 필요해요. ('+esc(e.message)+')</p></div>'; });
+      .catch(function(e){ try{ buildReport(null); }catch(x){} box.innerHTML='<div class="card"><h2>쿠팡 파트너스 성과</h2><p class="hint">아직 불러올 수 없어요. 12_coupang.sql 실행과 coupang_sync.py 실행이 필요해요. ('+esc(e.message)+')</p></div>'; });
+  }
+
+
+  // 상품 분석: 클릭(링크 페이지)과 쿠팡 실제 주문을 합쳐 다음 편 제작 힌트를 만든다. 계산은 이 페이지 안에서만 하고 따로 저장하지 않는다.
+  var CATS=[['아우터',/자켓|재킷|코트|패딩|점퍼|바람막이|블레이저|무스탕|조끼/],['가디건',/가디건/],['니트·이너',/니트|스웨터|티셔츠|티$|나시|블라우스|셔츠|이너|터틀|골지/],['스커트',/스커트|치마/],['바지',/슬랙스|바지|팬츠|데님/],['신발',/로퍼|메리제인|부츠|스니커즈|워커|슈즈|힐|단화/],['양말·소품',/삭스|양말|머플러|초커|가방|목걸이|귀걸이|벨트|스카프/]];
+  var COLS=[['블랙',/블랙/],['화이트·아이보리·크림',/화이트|아이보리|크림/],['브라운·카멜·베이지',/브라운|카멜|베이지|커피/],['그레이·차콜',/그레이|차콜/],['버건디·레드·와인',/버건디|레드|와인/],['그린·블루·퍼플·핑크',/그린|블루|퍼플|핑크|라벤더|네이비/]];
+  var pick=function(list,n){ for(var i=0;i<list.length;i++){ if(list[i][1].test(n)) return list[i][0]; } return '기타'; };
+  var bandOf=function(p){ p=+p||0; return p<10000?'1만원 미만':p<20000?'1~2만원':p<30000?'2~3만원':'3만원 이상'; };
+  function barsHtml(title,map,cnt,unit){
+    var rows=Object.keys(map).map(function(k){ return {k:k,v:map[k],c:cnt?cnt[k]:1}; });
+    rows=rows.filter(function(r){return r.k!=='기타'}).map(function(r){ r.s=cnt?r.v/Math.max(r.c,1):r.v; return r; }).sort(function(a,b){return b.s-a.s});
+    var mx=rows.length?rows[0].s:1;
+    return '<div class="card"><h2>'+title+'</h2>'+(rows.length?rows.map(function(r){
+      return '<div style="margin:8px 0"><div style="display:flex;justify-content:space-between;font-size:13px"><span>'+esc(r.k)+'</span><b>'+(cnt?r.s.toFixed(1)+' <small style="color:var(--sub);font-weight:400">('+r.v+'회 / 상품 '+r.c+'개)</small>':n0(r.v)+unit)+'</b></div><div class="barbg"><div class="bar" style="width:'+Math.max(4,Math.round(r.s/mx*100))+'%"></div></div></div>';
+    }).join(''):'<p class="hint">아직 데이터가 없어요.</p>')+'</div>';
+  }
+  function buildReport(cp){
+    var box=$('rp'); if(!box) return;
+    var st=LAST||{}; var items=(st.items||[]), tot=st.totals||{};
+    var bc={},bl={},bb={},nc={},nl={},nb={};
+    items.forEach(function(x){ var n=x.item||'', c=+x.clicks||0, a=pick(CATS,n), l=pick(COLS,n), b=bandOf(x.price);
+      bc[a]=(bc[a]||0)+c; nc[a]=(nc[a]||0)+1; bl[l]=(bl[l]||0)+c; nl[l]=(nl[l]||0)+1; bb[b]=(bb[b]||0)+c; nb[b]=(nb[b]||0)+1; });
+    var ords=(cp&&cp.orders||[]).filter(function(x){ return CH==='all'||SUB2CH[x.sub_id]===CH; });
+    var sc={}; ords.forEach(function(o){ var a=pick(CATS,o.product||''); sc[a]=(sc[a]||0)+(+o.qty||1); });
+    var top=function(m,c,min){ return Object.keys(m).filter(function(k){return k!=='기타'&&(c?c[k]>=min:true)}).sort(function(a,b){return (c?m[b]/c[b]-m[a]/c[a]:m[b]-m[a])}); };
+    var hc=top(bc,nc,3).slice(0,2), hl=top(bl,nl,3).slice(0,2), hb=top(bb,nb,3).slice(0,1), hs=top(sc).slice(0,2);
+    var hints=[];
+    if(hc.length) hints.push('클릭이 잘 나온 종류는 <b>'+esc(hc.join(', '))+'</b>예요. 다음 편에 이 종류를 룩마다 1개 이상 넣어 보세요.');
+    if(hl.length) hints.push('색은 <b>'+esc(hl.join(', '))+'</b> 계열이 반응이 좋아요.');
+    if(hb.length) hints.push('가격대는 <b>'+esc(hb[0])+'</b> 상품이 잘 눌려요.');
+    if(hs.length) hints.push('쿠팡에서 실제로 많이 팔린 종류는 <b>'+esc(hs.join(', '))+'</b>예요.');
+    if(!hints.length) hints.push('아직 데이터가 적어서 뚜렷한 경향이 없어요.');
+    var h='<div class="card"><h2>다음 편 제작 힌트</h2><p class="hint">클릭 '+n0(tot.clicks)+'회, 방문자 '+n0(tot.visitors)+'명, 쿠팡 주문 '+n0(ords.length)+'건을 합쳐 본 결과예요. <b>표본이 작아서 방향 참고용</b>이에요(데이터가 쌓이면 더 믿을 만해져요). 쿠팡 주문은 확정 전 값이에요.</p><ul style="margin:0 0 0 18px;padding:0;line-height:1.9;font-size:14px">'+hints.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div>'
+      +'<div class="grid2">'+barsHtml('종류별 클릭 (상품 1개당)',bc,nc)+barsHtml('색 계열별 클릭 (상품 1개당)',bl,nl)+barsHtml('가격대별 클릭 (상품 1개당)',bb,nb)+barsHtml('쿠팡에서 팔린 종류 (수량)',sc,null,'개')+'</div>'
+      +'<p class="hint">"상품 1개당 클릭"은 한 번이라도 눌린 상품만 센 값이라 실제보다 높게 나와요. 종류끼리 비교할 때만 보세요.</p>';
+    box.innerHTML=h;
   }
 
   function drawTabs(){
