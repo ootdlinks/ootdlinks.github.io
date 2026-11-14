@@ -74,7 +74,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
 </div>
 <script>
 (function(){
-  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261114213755';
+  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261114213945';
   var CHN={minji:'민지',yaar:'야르',peachmilk:'하린',denimdaily:'지우'}, CHS=['minji','yaar','peachmilk','denimdaily'];
   try{ var sc=localStorage.getItem('ootd_stats_ch'); if(sc==='all'||CHN[sc]) CH=sc; }catch(e){}
   var $=function(id){return document.getElementById(id)};
@@ -209,8 +209,8 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
           +'<div class="scroll"><table><thead><tr><th>채널</th><th>클릭</th><th>구매</th><th>구매금액</th><th>수익</th><th>클릭당 수익</th></tr></thead><tbody>'
           +(by.length?by.map(function(x){ return '<tr><td class="nm">'+esc(nm(x.sub_id))+(MASK?'':'<small>'+esc(x.sub_id||'')+'</small>')+'</td><td>'+n0(x.clicks)+'</td><td>'+n0(x.orders)+'</td><td>'+won(+x.gmv)+'</td><td><b>'+won(+x.commission)+'</b></td><td>'+(+x.clicks?Math.round(+x.commission/+x.clicks)+'원':'-')+'</td></tr>'; }).join(''):'<tr><td colspan="6" class="hint">이 기간 기록이 없어요.</td></tr>')
           +'</tbody></table></div>'
-          +'<h2 style="margin-top:18px">실제로 산 상품</h2><div class="scroll"><table><thead><tr><th>상품</th><th>수량</th><th>구매금액</th><th>수익</th></tr></thead><tbody>'
-          +(ords.length?ords.slice(0,40).map(function(x){ return '<tr><td class="nm">'+esc((x.product||'').slice(0,60))+'<small>'+esc(x.day)+' · '+esc(nm(x.sub_id))+(x.category?' · '+esc(x.category):'')+'</small></td><td>'+n0(x.qty)+'</td><td>'+won(+x.gmv)+'</td><td>'+won(+x.commission)+'</td></tr>'; }).join(''):'<tr><td colspan="4" class="hint">구매가 아직 없어요.</td></tr>')
+          +'<h2 style="margin-top:18px">실제로 산 상품 <small style="font-weight:400;color:var(--sub);font-size:12px">최근 10건</small></h2><div class="scroll"><table><thead><tr><th>상품</th><th>수량</th><th>구매금액</th><th>수익</th></tr></thead><tbody>'
+          +(ords.length?ords.slice(0,10).map(function(x){ return '<tr><td class="nm">'+esc((x.product||'').slice(0,60))+'<small>'+esc(x.day)+' · '+esc(nm(x.sub_id))+(x.category?' · '+esc(x.category):'')+'</small></td><td>'+n0(x.qty)+'</td><td>'+won(+x.gmv)+'</td><td>'+won(+x.commission)+'</td></tr>'; }).join(''):'<tr><td colspan="4" class="hint">구매가 아직 없어요.</td></tr>')
           +'</tbody></table></div></div>';
         box.innerHTML=h; try{ buildReport(d); }catch(e){}
       })
