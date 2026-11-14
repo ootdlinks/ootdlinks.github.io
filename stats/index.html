@@ -65,11 +65,12 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
   <div id="chtabs" class="ctl" style="margin-top:-4px"></div>
   <div id="stamp" class="stamp"></div>
   <div id="err" class="err"></div>
+  <div id="cp"></div>
   <div id="out"></div>
 </div>
 <script>
 (function(){
-  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261114001914';
+  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261114161927';
   var CHN={minji:'민지',yaar:'야르',peachmilk:'하린',denimdaily:'지우'}, CHS=['minji','yaar','peachmilk','denimdaily'];
   try{ var sc=localStorage.getItem('ootd_stats_ch'); if(sc==='all'||CHN[sc]) CH=sc; }catch(e){}
   var $=function(id){return document.getElementById(id)};
@@ -179,6 +180,31 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     var z=$('z'); if(z) z.onchange=function(){ [].forEach.call(document.querySelectorAll('#itbl .zr'),function(tr){ tr.hidden=!z.checked }); };
   }
 
+
+  // 쿠팡 파트너스 성과(채널 ID별 클릭·구매·수익). 데이터는 coupang_sync.py 가 쿠팡 API에서 읽어 Supabase에 올려 둔 것이다.
+  var SUB2CH={minjiatnight:'minji',yaarootd:'yaar'};
+  function loadCoupang(k){
+    var box=$('cp'); if(!box||!k) return;
+    fetch(U+'/rest/v1/rpc/get_coupang_stats',{method:'POST',headers:{apikey:K,Authorization:'Bearer '+K,'Content-Type':'application/json'},body:JSON.stringify({p_key:k,p_days:+$('days').value})})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(d){
+        var by=(d.by_sub||[]).filter(function(x){ return CH==='all'||SUB2CH[x.sub_id]===CH; });
+        var ords=(d.orders||[]).filter(function(x){ return CH==='all'||SUB2CH[x.sub_id]===CH; });
+        var nm=function(s){ var c=SUB2CH[s]; return c?chn(c):(MASK?'다른 채널':(s||'(채널ID 없음)')); };
+        var tc=0,to=0,tg=0,tm=0; by.forEach(function(x){ tc+=+x.clicks; to+=+x.orders; tg+=+x.gmv; tm+=+x.commission; });
+        var h='<div class="card"><h2>쿠팡 파트너스 성과</h2><p class="hint">쿠팡 파트너스에 잡힌 숫자예요(채널 ID별). 클릭은 쿠팡 링크를 눌러 쿠팡으로 넘어간 횟수, 구매는 주문 건수, 수익은 예상 수수료예요. 쿠팡이 확정하기 전 값이라 취소·반품되면 줄어들 수 있어요.'+(d.updated?' 마지막 갱신 '+new Date(d.updated).toLocaleString('ko-KR')+'.':'')+'</p>'
+          +'<div class="kpis"><div class="kpi"><small>쿠팡 클릭</small><b>'+n0(tc)+'</b></div><div class="kpi"><small>구매(주문 건)</small><b>'+n0(to)+'</b></div><div class="kpi"><small>구매금액 합계</small><b>'+won(tg)+'</b></div><div class="kpi"><small>예상 수익</small><b>'+won(tm)+'</b><em>구매 '+pct(to,tc)+'</em></div><div class="kpi"><small>클릭당 수익</small><b>'+(tc?Math.round(tm/tc)+'원':'-')+'</b></div></div>'
+          +'<div class="scroll"><table><thead><tr><th>채널</th><th>클릭</th><th>구매</th><th>구매금액</th><th>수익</th><th>클릭당 수익</th></tr></thead><tbody>'
+          +(by.length?by.map(function(x){ return '<tr><td class="nm">'+esc(nm(x.sub_id))+(MASK?'':'<small>'+esc(x.sub_id||'')+'</small>')+'</td><td>'+n0(x.clicks)+'</td><td>'+n0(x.orders)+'</td><td>'+won(+x.gmv)+'</td><td><b>'+won(+x.commission)+'</b></td><td>'+(+x.clicks?Math.round(+x.commission/+x.clicks)+'원':'-')+'</td></tr>'; }).join(''):'<tr><td colspan="6" class="hint">이 기간 기록이 없어요.</td></tr>')
+          +'</tbody></table></div>'
+          +'<h2 style="margin-top:18px">실제로 산 상품</h2><div class="scroll"><table><thead><tr><th>상품</th><th>수량</th><th>구매금액</th><th>수익</th></tr></thead><tbody>'
+          +(ords.length?ords.slice(0,40).map(function(x){ return '<tr><td class="nm">'+esc((x.product||'').slice(0,60))+'<small>'+esc(x.day)+' · '+esc(nm(x.sub_id))+(x.category?' · '+esc(x.category):'')+'</small></td><td>'+n0(x.qty)+'</td><td>'+won(+x.gmv)+'</td><td>'+won(+x.commission)+'</td></tr>'; }).join(''):'<tr><td colspan="4" class="hint">구매가 아직 없어요.</td></tr>')
+          +'</tbody></table></div></div>';
+        box.innerHTML=h;
+      })
+      .catch(function(e){ box.innerHTML='<div class="card"><h2>쿠팡 파트너스 성과</h2><p class="hint">아직 불러올 수 없어요. 12_coupang.sql 실행과 coupang_sync.py 실행이 필요해요. ('+esc(e.message)+')</p></div>'; });
+  }
+
   function drawTabs(){
     $('chtabs').innerHTML=['all'].concat(CHS).map(function(c){ return '<button data-c="'+c+'" style="'+(c===CH?'':'opacity:.55')+'">'+(c==='all'?'전체 채널':chn(c))+'</button>'; }).join('');
     [].forEach.call($('chtabs').querySelectorAll('button'),function(b){ b.onclick=function(){ CH=b.getAttribute('data-c'); try{localStorage.setItem('ootd_stats_ch',CH);}catch(e){} drawTabs(); if($('key').value.trim()) load(); }; });
@@ -199,7 +225,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     $('go').disabled=true; if(quiet!==true) $('stamp').textContent='불러오는 중…';
     fetch(U+'/rest/v1/rpc/get_ootd_stats',{method:'POST',headers:{apikey:K,Authorization:'Bearer '+K,'Content-Type':'application/json'},body:JSON.stringify({p_key:k,p_days:+$('days').value,p_ch:CH})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function(d){ try{ localStorage.setItem('ootd_stats_key',k); }catch(e){} return ready.then(function(){return d}); }).then(function(d){ LAST=d; var zc=$('z')&&$('z').checked; var sy=window.pageYOffset; render(d); if(zc&&$('z')){ $('z').checked=true; $('z').onchange(); } window.scrollTo(0,sy); var t=new Date(); $('stamp').textContent='최근 '+d.days+'일 · '+t.toLocaleString('ko-KR')+' 기준'; })
+      .then(function(d){ try{ localStorage.setItem('ootd_stats_key',k); }catch(e){} return ready.then(function(){return d}); }).then(function(d){ LAST=d; var zc=$('z')&&$('z').checked; var sy=window.pageYOffset; render(d); if(zc&&$('z')){ $('z').checked=true; $('z').onchange(); } window.scrollTo(0,sy); var t=new Date(); $('stamp').textContent='최근 '+d.days+'일 · '+t.toLocaleString('ko-KR')+' 기준'; loadCoupang(k); })
       .catch(function(e){ $('stamp').textContent=''; $('err').textContent=(String(e.message)==='401'||String(e.message)==='403'||String(e.message)==='400')?'열쇠가 맞지 않아요.':'불러오지 못했어요. SQL(10_ootd_events.sql)을 실행했는지 확인해 주세요. ('+e.message+')'; })
       .finally(function(){ $('go').disabled=false; });
   }
