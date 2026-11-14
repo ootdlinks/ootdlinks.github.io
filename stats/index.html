@@ -70,11 +70,12 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
   <div id="err" class="err"></div>
   <div id="rp"></div>
   <div id="cp"></div>
+  <div id="vd"></div>
   <div id="out"></div>
 </div>
 <script>
 (function(){
-  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261114213945';
+  var U='https://mmhwibktabalqtrvblyt.supabase.co', K='sb_publishable_u4HV1l7KkTm7qRGVg_0MsA_9GmAnbZW', CH='all', DV='20261115044329';
   var CHN={minji:'민지',yaar:'야르',peachmilk:'하린',denimdaily:'지우'}, CHS=['minji','yaar','peachmilk','denimdaily'];
   try{ var sc=localStorage.getItem('ootd_stats_ch'); if(sc==='all'||CHN[sc]) CH=sc; }catch(e){}
   var $=function(id){return document.getElementById(id)};
@@ -254,8 +255,29 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
   }
 
 
+
+  // 영상 분석: 릴스별 조회수·음악·룩 구성·문구와 "왜 터졌나" 가설. 데이터는 video_log.py 가 인스타에서 읽어 Supabase(video_log)에 올린 것.
+  function loadVideos(k){
+    var box=$('vd'); if(!box||!k) return;
+    fetch(U+'/rest/v1/rpc/get_video_log',{method:'POST',headers:{apikey:K,Authorization:'Bearer '+K,'Content-Type':'application/json'},body:JSON.stringify({p_key:k})})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(d){
+        var vs=(d.videos||[]).slice(); var G=[]; vs.forEach(function(v){ if(v._g) G=v._g; });
+        vs.sort(function(a,b){ return (+b.views)-(+a.views); });
+        var mx=vs.length?+vs[0].views:1, mv=function(n){ n=+n; return n>=10000?(n/10000).toFixed(1)+'만':n>=1000?n.toLocaleString('ko-KR'):String(n); };
+        var gain=function(v){ var h=(v.hist||[]); if(h.length<2) return ''; var dd=h[h.length-1].v-h[h.length-2].v; return dd?'<small style="color:'+(dd>0?'#0a7d3b':'#b42318')+'">'+(dd>0?'+':'')+mv(dd)+' (전 측정 대비)</small>':''; };
+        var h='<div class="card"><h2>영상 분석</h2><p class="hint">릴스마다 조회수·음악·룩 구성·문구를 기록하고 무엇이 터졌는지 비교해요. 매일 조회수를 읽어 갱신하고, 새 영상이 올라오면 한 줄씩 더해요. 표본이 아직 적어서 아래 "가설"은 시험 중인 추측이에요.'+(d.updated?' 마지막 갱신 '+new Date(d.updated).toLocaleString('ko-KR')+'.':'')+'</p>'
+          +'<div class="scroll"><table><thead><tr><th>편</th><th>조회수</th><th>음악(안무 구간)</th><th>길이</th><th>룩 구성</th><th>POV 문구</th></tr></thead><tbody>'
+          +(vs.length?vs.map(function(v){ return '<tr><td class="nm">'+esc(v.ep)+'<small>'+esc(v.posted||'')+' · '+esc(v.ch)+'</small></td><td><b>'+mv(v.views)+'</b>'+gain(v)+'<div style="height:6px;background:#eee;border-radius:3px;margin-top:4px;min-width:60px"><div style="height:6px;width:'+Math.max(3,Math.round(100*(+v.views)/mx))+'%;background:#111;border-radius:3px"></div></div></td><td>'+esc(v.music||'')+'</td><td>'+(v.dur?v.dur+'초':'-')+'</td><td>'+esc(v.looks)+'벌 · 다양성 '+esc(v.variety||'')+'<small>'+esc(v.looks_desc||'')+'</small></td><td>'+esc(v.pov||'')+'<small>'+esc(v.pov_type||'')+' · 작성 '+esc(v.author||'')+(v.note?' · '+esc(v.note):'')+'</small></td></tr>'; }).join(''):'<tr><td colspan="6" class="hint">기록이 없어요.</td></tr>')
+          +'</tbody></table></div></div>';
+        if(G.length) h+='<div class="card"><h2>왜 터졌나 가설</h2><ul style="margin:0 0 0 18px;padding:0;line-height:1.9;font-size:14px">'+G.map(function(g){ return '<li><b>'+esc(g.h)+'</b> <small>['+esc(g.status)+']</small><br><span style="color:var(--sub)">'+esc(g.evidence)+'</span></li>'; }).join('')+'</ul></div>';
+        box.innerHTML=h;
+      })
+      .catch(function(e){ box.innerHTML='<div class="card"><h2>영상 분석</h2><p class="hint">아직 불러올 수 없어요. supabase/13_video_log.sql 을 실행하고 video_log.py 를 한 번 돌려 주세요. ('+e.message+')</p></div>'; });
+  }
+
   // 화면 전환 버튼: 클릭 통계 / 쿠팡 성과 / 상품 분석 (주소 끝 #coupang, #report 로 바로 열기, 마지막 선택은 기억)
-  var VIEWS=[['click','클릭 통계','out'],['coupang','쿠팡 성과','cp'],['report','상품 분석','rp']], VIEW='click';
+  var VIEWS=[['click','클릭 통계','out'],['coupang','쿠팡 성과','cp'],['report','상품 분석','rp'],['video','영상 분석','vd']], VIEW='click';
   try{ var hv=location.hash.replace('#',''); var sv=localStorage.getItem('ootd_stats_view'); VIEW=VIEWS.some(function(v){return v[0]===hv})?hv:(VIEWS.some(function(v){return v[0]===sv})?sv:'click'); }catch(e){}
   function setView(v){
     VIEW=v; try{ localStorage.setItem('ootd_stats_view',v); history.replaceState(null,'','#'+v); }catch(e){}
@@ -285,7 +307,7 @@ td.nm small{display:block;color:var(--sub);font-size:11.5px}
     $('go').disabled=true; if(quiet!==true) $('stamp').textContent='불러오는 중…';
     fetch(U+'/rest/v1/rpc/get_ootd_stats',{method:'POST',headers:{apikey:K,Authorization:'Bearer '+K,'Content-Type':'application/json'},body:JSON.stringify({p_key:k,p_days:+$('days').value,p_ch:CH})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function(d){ try{ localStorage.setItem('ootd_stats_key',k); }catch(e){} return ready.then(function(){return d}); }).then(function(d){ LAST=d; var zc=$('z')&&$('z').checked; var sy=window.pageYOffset; render(d); if(zc&&$('z')){ $('z').checked=true; $('z').onchange(); } window.scrollTo(0,sy); var t=new Date(); $('stamp').textContent='최근 '+d.days+'일 · '+t.toLocaleString('ko-KR')+' 기준'; loadCoupang(k); })
+      .then(function(d){ try{ localStorage.setItem('ootd_stats_key',k); }catch(e){} return ready.then(function(){return d}); }).then(function(d){ LAST=d; var zc=$('z')&&$('z').checked; var sy=window.pageYOffset; render(d); if(zc&&$('z')){ $('z').checked=true; $('z').onchange(); } window.scrollTo(0,sy); var t=new Date(); $('stamp').textContent='최근 '+d.days+'일 · '+t.toLocaleString('ko-KR')+' 기준'; loadCoupang(k); loadVideos(k); })
       .catch(function(e){ $('stamp').textContent=''; $('err').textContent=(String(e.message)==='401'||String(e.message)==='403'||String(e.message)==='400')?'열쇠가 맞지 않아요.':'불러오지 못했어요. SQL(10_ootd_events.sql)을 실행했는지 확인해 주세요. ('+e.message+')'; })
       .finally(function(){ $('go').disabled=false; });
   }
