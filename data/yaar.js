@@ -41,5 +41,37 @@ const EPISODES = [
         {name:"블랙 에나멜 통굽 페니 로퍼", price:48850, ok:true, hide:false, url:"https://link.coupang.com/a/iEgxFZMaT6", img:"noc1_loaf3.jpg"}
       ]}
     ]
+  },
+  {
+    tab: "OOTD02",
+    label: "OOTD 02",
+    pov: "올블랙인데 4벌 다 분위기 달라서 기강잡는 코디",
+    looks: [
+      { name: "블랙 테일러드 고딕 출근 룩", imgs: ["ootd2d_l1_1.jpg"], items: [
+        {name:"블랙 싱글버튼 테일러드 자켓", price:25900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6WOlLdk", img:"ootd2d_n_1_1.jpg"},
+        {name:"화이트 리본타이 시폰 블라우스", price:22000, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6W9DFYa", img:"ootd2d_n_1_2.jpg"},
+        {name:"블랙 H라인 스판 스커트", price:13900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6WIpkSi", img:"ootd2d_n_1_3.jpg"},
+        {name:"블랙 니하이 롱부츠", price:47880, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6WknGGi", img:"ootd2d_n_1_4.jpg"}
+      ]},
+      { name: "버건디 벨벳 디너 룩", imgs: ["ootd2d_l2_1.jpg"], items: [
+        {name:"버건디 브이넥 크롭 가디건", price:17310, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6W3HfC8", img:"ootd2d_n_2_1.jpg"},
+        {name:"블랙 골지 슬림핏 이너", price:26800, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6ZPG03U", img:"ootd2d_n_2_2.jpg"},
+        {name:"블랙 레더 하이웨이스트 미니스커트", price:19480, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6ZDTgQ0", img:"ootd2d_n_2_3.jpg"},
+        {name:"블랙 골지 오버니삭스", price:9990, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6Xe9sHc", img:"ootd2d_n_2_4.jpg"},
+        {name:"블랙 5cm 앵클부츠", price:25900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6Zhlyj6", img:"ootd2d_n_2_5.jpg"}
+      ]},
+      { name: "블랙 하프코트 겨울 룩", imgs: ["ootd2d_l3_1.jpg"], items: [
+        {name:"블랙 울 블렌드 핸드메이드 하프코트", price:39000, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6WwiP80", img:"ootd2d_n_3_1.jpg"},
+        {name:"차콜 세미하이넥 슬림핏 이너", price:15800, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6ZJ5U4W", img:"ootd2d_n_3_2.jpg"},
+        {name:"블랙 와이드 슬랙스", price:17720, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6Zxe5BI", img:"ootd2d_n_3_3.jpg"},
+        {name:"블랙 첼시 앵클부츠", price:23900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6Wq5NWm", img:"ootd2d_n_3_4.jpg"}
+      ]},
+      { name: "딥퍼플 가디건 룩", imgs: ["ootd2d_l4_1.jpg"], items: [
+        {name:"퍼플 딥브이넥 크롭 니트 가디건", price:29900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6ZqrRSu", img:"ootd2d_n_4_1.jpg"},
+        {name:"블랙 모직 플리츠 미니스커트", price:13900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6WX40fQ", img:"ootd2d_n_4_2.jpg"},
+        {name:"블랙 에나멜 통굽 로퍼", price:14870, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6WCM5u0", img:"ootd2d_n_4_3.jpg"},
+        {name:"블랙 골지 오버니삭스", price:9990, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6Xe9sHc", img:"ootd2d_n_4_4.jpg"}
+      ]}
+    ]
   }
 ];

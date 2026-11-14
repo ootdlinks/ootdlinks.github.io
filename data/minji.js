@@ -264,5 +264,37 @@ const EPISODES = [
         {name:"화이트 스니커즈", price:14990, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGWpPYs0", img:"ep12n_white_snk.jpg"}
       ]}
     ]
+  },
+  {
+    tab: "OOTD03",
+    label: "OOTD 03",
+    pov: "전남친이 못 잊는 2000년대 드라마 여주 코디",
+    looks: [
+      { name: "카멜 코듀로이 브런치 룩", imgs: ["ootd3d_l1_1.jpg"], items: [
+        {name:"카멜 크롭 코듀로이 자켓", price:23900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6RyLQ1k", img:"ootd3d_n_1_1.jpg"},
+        {name:"아이보리 꽈배기 세미크롭 니트", price:17400, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6TWJKpg", img:"ootd3d_n_1_2.jpg"},
+        {name:"체크 플리츠 미니스커트", price:21390, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6TQ6irs", img:"ootd3d_n_1_3.jpg"},
+        {name:"브라운 통굽 로퍼", price:31900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6RjyVfE", img:"ootd3d_n_1_4.jpg"}
+      ]},
+      { name: "딥그린 가디건 캠퍼스 룩", imgs: ["ootd3d_l2_1.jpg"], items: [
+        {name:"딥그린 케이블 크롭 가디건", price:26900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6QJostE", img:"ootd3d_n_2_1.jpg"},
+        {name:"화이트 프릴 리본 블라우스", price:29900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6Q8arpA", img:"ootd3d_n_2_2.jpg"},
+        {name:"커피색 플리츠 미니스커트", price:18720, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6UdOcQC", img:"ootd3d_n_2_3.jpg"},
+        {name:"브라운 더블버클 메리제인", price:17640, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6RqyDDM", img:"ootd3d_n_2_4.jpg"}
+      ]},
+      { name: "버건디 가디건 영화관 룩", imgs: ["ootd3d_l3_1.jpg"], items: [
+        {name:"버건디 케이블 크롭 브이넥 가디건", price:20020, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6TGdhDw", img:"ootd3d_n_3_1.jpg"},
+        {name:"화이트 골지 베이직 나시", price:13900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6QWbyIS", img:"ootd3d_n_3_2.jpg"},
+        {name:"블랙 모직 플리츠 미니스커트", price:13900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6REQP0u", img:"ootd3d_n_3_3.jpg"},
+        {name:"블랙 소프트 레더 메리제인", price:17900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6RdMGMS", img:"ootd3d_n_3_4.jpg"},
+        {name:"블랙 골지 오버니삭스", price:9990, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6TLR6Qu", img:"ootd3d_n_3_5.jpg"}
+      ]},
+      { name: "차콜 자켓 밤산책 룩", imgs: ["ootd3d_l4_1.jpg"], items: [
+        {name:"차콜 숏 버튼 울 자켓", price:59800, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6Q2OAzQ", img:"ootd3d_n_4_1.jpg"},
+        {name:"화이트 리본타이 블라우스", price:34710, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6T70OZw", img:"ootd3d_n_4_2.jpg"},
+        {name:"블랙 울터치 A라인 미니스커트", price:19900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6T0VZ8e", img:"ootd3d_n_4_3.jpg"},
+        {name:"블랙 벨 메리제인 플랫", price:19900, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6QQBPY4", img:"ootd3d_n_4_4.jpg"}
+      ]}
+    ]
   }
 ];
