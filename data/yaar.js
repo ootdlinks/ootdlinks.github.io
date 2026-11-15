@@ -103,5 +103,36 @@ const EPISODES = [
         {name:"블랙 청키 레이스업 운동화", price:24860, ok:true, hide:false, url:"https://link.coupang.com/a/iGzWyazL4K", img:"ootd3y_n_4_3.jpg"}
       ]}
     ]
+  },
+  {
+    tab: "OOTD04",
+    label: "OOTD 04",
+    pov: "밤에만 폼 미치는 올블랙 코디 입고 퇴근한 나",
+    looks: [
+      { name: "퍼 숏 재킷 레더 미니 룩", imgs: ["ootd4y_l1_1.jpg"], items: [
+        {name:"양털 후리스 크롭 후드 집업", price:68370, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfCydorc", img:"ootd4y_n_1_1.jpg"},
+        {name:"하이넥 더블집업 크롭 니트", price:18850, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfv4QAvY", img:"ootd4y_n_1_2.jpg"},
+        {name:"하이웨이스트 PU 레더 미니스커트", price:20250, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfwafXMW", img:"ootd4y_n_1_3.jpg"},
+        {name:"스웨이드 리본 니하이 롱부츠", price:21780, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfwfNxkG", img:"ootd4y_n_1_4.jpg"}
+      ]},
+      { name: "그레이 후드집업 데님 쇼츠 룩", imgs: ["ootd4y_l2_1.jpg"], items: [
+        {name:"오버핏 후드집업", price:30700, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfCorCLc", img:"ootd4y_n_2_1.jpg"},
+        {name:"레이스 브이넥 캐미솔", price:12920, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfwlgNqe", img:"ootd4y_n_2_2.jpg"},
+        {name:"하이웨이스트 블랙 데님 숏팬츠", price:18740, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvHQ4YK", img:"ootd4y_n_2_3.jpg"},
+        {name:"니트 레그워머", price:8300, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvZHhxk", img:"ootd4y_n_2_4.jpg"},
+        {name:"청키 레이스업 운동화", price:24860, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfB8PGBE", img:"ootd4y_n_2_5.jpg"}
+      ]},
+      { name: "벨티드 트렌치 플레어 미니 룩", imgs: ["ootd4y_l3_1.jpg"], items: [
+        {name:"블랙 벨트 숏 트렌치", price:29360, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfCjsfFQ", img:"ootd4y_n_3_1.jpg"},
+        {name:"크롭 기모 폴라티", price:35440, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfCeiWHc", img:"ootd4y_n_3_2.jpg"},
+        {name:"레이어드 플레어 미니스커트", price:18220, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfCtDhIG", img:"ootd4y_n_3_3.jpg"},
+        {name:"청키 플랫폼 페니 로퍼", price:37000, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvzviW4", img:"ootd4y_n_3_4.jpg"}
+      ]},
+      { name: "크롭 가디건 슬립 원피스 룩", imgs: ["ootd4y_l4_1.jpg"], items: [
+        {name:"브이넥 숏 니트 가디건", price:15300, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvD7LEq", img:"ootd4y_n_4_1.jpg"},
+        {name:"레이스 새틴 슬립 캐미솔", price:20580, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvPxfie", img:"ootd4y_n_4_2.jpg"},
+        {name:"벨트 버클 웨스턴 부츠", price:37410, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvUvCzQ", img:"ootd4y_n_4_3.jpg"}
+      ]}
+    ]
   }
 ];

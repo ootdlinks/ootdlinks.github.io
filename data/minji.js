@@ -326,5 +326,37 @@ const EPISODES = [
         {name:"스웨이드 슬라우치 미들 부츠", price:42500, ok:true, hide:false, url:"https://link.coupang.com/a/iGzWpqfJLg", img:"ootd4d_n_4_3.jpg"}
       ]}
     ]
+  },
+  {
+    tab: "OOTD05",
+    label: "OOTD 05",
+    pov: "낙엽 밟고 걷기만 해도 화보 되는 늦가을 코디",
+    looks: [
+      { name: "핑크베이지 가디건 레이스 미니 룩", imgs: ["ootd5m_l1_1.jpg"], items: [
+        {name:"꽈배기 크롭 니트 가디건", price:18800, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfqZdDFY", img:"ootd5m_n_1_1.jpg"},
+        {name:"레이스 브이넥 캐미솔", price:12920, ok:true, hide:false, url:"https://link.coupang.com/a/iGDftnnfLU", img:"ootd5m_n_1_2.jpg"},
+        {name:"레이스 캉캉 플레어 미니스커트", price:19900, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfq9Fg28", img:"ootd5m_n_1_3.jpg"},
+        {name:"스판 니하이 롱부츠", price:47880, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfqCMkA8", img:"ootd5m_n_1_4.jpg"}
+      ]},
+      { name: "카키 후드집업 쇼츠 룩", imgs: ["ootd5m_l2_1.jpg"], items: [
+        {name:"기모 후드집업", price:14900, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfqxgxR6", img:"ootd5m_n_2_1.jpg"},
+        {name:"레이스 브이넥 캐미솔", price:12920, ok:true, hide:false, url:"https://link.coupang.com/a/iGDftnnfLU", img:"ootd5m_n_2_2.jpg"},
+        {name:"하이웨이스트 블랙 데님 반바지", price:18700, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfqUCw9I", img:"ootd5m_n_2_3.jpg"},
+        {name:"8cm 키높이 통굽 스니커즈", price:21000, ok:true, hide:false, url:"https://link.coupang.com/a/iGDftyYhs4", img:"ootd5m_n_2_4.jpg"}
+      ]},
+      { name: "베이지 트렌치 플로럴 롱스커트 룩", imgs: ["ootd5m_l3_1.jpg"], items: [
+        {name:"크롭 숏트렌치 자켓", price:44190, ok:true, hide:false, url:"https://link.coupang.com/a/iGDftbbuYT", img:"ootd5m_n_3_1.jpg"},
+        {name:"레이스 브이넥 슬리브리스 탑", price:17500, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfthigML", img:"ootd5m_n_3_2.jpg"},
+        {name:"꽃무늬 밴딩 롱스커트", price:21100, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfqOY5bU", img:"ootd5m_n_3_3.jpg"},
+        {name:"V컷 키높이 통굽 미들부츠", price:35500, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfs5EIr6", img:"ootd5m_n_3_4.jpg"}
+      ]},
+      { name: "레더 재킷 데님 미니 룩", imgs: ["ootd5m_l4_1.jpg"], items: [
+        {name:"크롭 레더 라이더 재킷", price:34800, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfqJTiEu", img:"ootd5m_n_4_1.jpg"},
+        {name:"슬림핏 라운드넥 니트", price:12900, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfregnzo", img:"ootd5m_n_4_2.jpg"},
+        {name:"A라인 데님 미니스커트", price:22100, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfq4LddI", img:"ootd5m_n_4_3.jpg"},
+        {name:"니트 레그워머", price:9800, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfts4eaW", img:"ootd5m_n_4_4.jpg"},
+        {name:"통굽 에나멜 로퍼힐", price:40900, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfqHyZaK", img:"ootd5m_n_4_5.jpg"}
+      ]}
+    ]
   }
 ];
