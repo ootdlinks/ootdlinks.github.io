@@ -358,5 +358,36 @@ const EPISODES = [
         {name:"통굽 에나멜 로퍼힐", price:40900, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfqHyZaK", img:"ootd5m_n_4_5.jpg"}
       ]}
     ]
+  },
+  {
+    tab: "OOTD06",
+    label: "OOTD 06",
+    pov: "블프 시즌이라 겨울옷 장바구니 터졌는데 코디가 너무 예쁨",
+    looks: [
+      { name: "시어링 자켓 체크 미니 룩", imgs: ["ootd6m_l1_1.jpg"], items: [
+        {name:"아이보리 뽀글이 시어링 숏 자켓", price:42800, ok:true, hide:false, url:"https://link.coupang.com/a/iJjf82WNYO", img:"ootd6m_n_1_1.jpg"},
+        {name:"화이트 케이블 터틀넥 니트", price:15600, ok:true, hide:false, url:"https://link.coupang.com/a/iJjf8QBppB", img:"ootd6m_n_1_2.jpg"},
+        {name:"체크 울 A라인 미니스커트", price:18580, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgbXq94m", img:"ootd6m_n_1_3.jpg"},
+        {name:"브라운 라운드토 롱부츠", price:41890, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgbHiyia", img:"ootd6m_n_1_4.jpg"}
+      ]},
+      { name: "크림 숏패딩 와이드 데님 룩", imgs: ["ootd6m_l2_1.jpg"], items: [
+        {name:"크림 하이넥 크롭 숏패딩", price:48000, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgbDhDPM", img:"ootd6m_n_2_1.jpg"},
+        {name:"블랙 하이넥 폴라티", price:17900, ok:true, hide:false, url:"https://link.coupang.com/a/iJjf9pEInY", img:"ootd6m_n_2_2.jpg"},
+        {name:"라이트 와이드 데님 롱팬츠", price:17440, ok:true, hide:false, url:"https://link.coupang.com/a/iJjf8GN5PM", img:"ootd6m_n_2_3.jpg"},
+        {name:"카멜 스웨이드 털부츠", price:18890, ok:true, hide:false, url:"https://link.coupang.com/a/iJjf8LSlxs", img:"ootd6m_n_2_4.jpg"}
+      ]},
+      { name: "가디건 레이어드 미니 룩", imgs: ["ootd6m_l3_1.jpg"], items: [
+        {name:"베이지 오버핏 브이넥 니트 가디건", price:58700, ok:true, hide:false, url:"https://link.coupang.com/a/iJjf9jh8gK", img:"ootd6m_n_3_1.jpg"},
+        {name:"핑크 슬림핏 목폴라티", price:12050, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgbSfu6S", img:"ootd6m_n_3_2.jpg"},
+        {name:"블랙 기모 울 A라인 미니스커트", price:19900, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgbMPSU0", img:"ootd6m_n_3_3.jpg"},
+        {name:"니트 골지 레그워머", price:7900, ok:true, hide:false, url:"https://link.coupang.com/a/iJjf889scK", img:"ootd6m_n_3_4.jpg"},
+        {name:"블랙 통굽 메리제인 슈즈", price:21730, ok:true, hide:false, url:"https://link.coupang.com/a/iJjf9uIX5E", img:"ootd6m_n_3_5.jpg"}
+      ]},
+      { name: "후드 니트 와이드 팬츠 룩", imgs: ["ootd6m_l4_1.jpg"], items: [
+        {name:"브라운 후드 단추 니트", price:31170, ok:true, hide:false, url:"https://link.coupang.com/a/iJjf9e0UA8", img:"ootd6m_n_4_1.jpg"},
+        {name:"아이보리 와이드 밴딩 팬츠", price:27900, ok:true, hide:false, url:"https://link.coupang.com/a/iJjf8WAdRA", img:"ootd6m_n_4_2.jpg"},
+        {name:"블랙 털안감 통굽 로퍼", price:44000, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgbxOnKe", img:"ootd6m_n_4_3.jpg"}
+      ]}
+    ]
   }
 ];

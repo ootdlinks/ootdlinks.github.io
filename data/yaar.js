@@ -134,5 +134,36 @@ const EPISODES = [
         {name:"벨트 버클 웨스턴 부츠", price:37410, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvUvCzQ", img:"ootd4y_n_4_3.jpg"}
       ]}
     ]
+  },
+  {
+    tab: "OOTD05",
+    label: "OOTD 05",
+    pov: "블프 시즌 장바구니 털고 퇴근길에 바로 입고 나감",
+    looks: [
+      { name: "유광 푸퍼 레더 미니 룩", imgs: ["ootd5y_l1_1.jpg"], items: [
+        {name:"블랙 유광 크롭 숏패딩", price:40910, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgeTzweO", img:"ootd5y_n_1_1.jpg"},
+        {name:"블랙 골지 터틀넥 니트", price:19600, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgemWSZ2", img:"ootd5y_n_1_2.jpg"},
+        {name:"블랙 레더 기모 A라인 미니스커트", price:20900, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgec8kHA", img:"ootd5y_n_1_3.jpg"},
+        {name:"블랙 스판 니하이 롱부츠", price:37880, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgd8PO68", img:"ootd5y_n_1_4.jpg"}
+      ]},
+      { name: "블랙 라이더 와이드 슬랙스 룩", imgs: ["ootd5y_l2_1.jpg"], items: [
+        {name:"블랙 PU 라이더 자켓", price:35770, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghHSsO4", img:"ootd5y_n_2_1.jpg"},
+        {name:"블랙 골지 하이넥 니트", price:16960, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghQ42eW", img:"ootd5y_n_2_2.jpg"},
+        {name:"블랙 기모 와이드 슬랙스", price:12900, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgeyhBtY", img:"ootd5y_n_2_3.jpg"},
+        {name:"블랙 통굽 로퍼", price:49000, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgeDYONU", img:"ootd5y_n_2_4.jpg"}
+      ]},
+      { name: "롱코트 플리츠 롱스커트 룩", imgs: ["ootd5y_l3_1.jpg"], items: [
+        {name:"블랙 울 롱코트", price:17010, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgehORWe", img:"ootd5y_n_3_1.jpg"},
+        {name:"블랙 반목 골지 니트", price:17900, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghCKrLg", img:"ootd5y_n_3_2.jpg"},
+        {name:"블랙 기모 플리츠 롱스커트", price:27500, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgeJJF1w", img:"ootd5y_n_3_3.jpg"},
+        {name:"블랙 털 7cm 통굽 앵클부츠", price:44900, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgeOBnR6", img:"ootd5y_n_3_4.jpg"}
+      ]},
+      { name: "시어링 보머 카고 룩", imgs: ["ootd5y_l4_1.jpg"], items: [
+        {name:"블랙 시어링 카라 가죽 보머", price:22400, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgetgWtM", img:"ootd5y_n_4_1.jpg"},
+        {name:"블랙 하이넥 골지 니트", price:21730, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghZ2M9c", img:"ootd5y_n_4_2.jpg"},
+        {name:"블랙 기모 와이드 카고 팬츠", price:19500, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghVLztA", img:"ootd5y_n_4_3.jpg"},
+        {name:"블랙 통굽 가죽 앵클부츠", price:22590, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghNlIUC", img:"ootd5y_n_4_4.jpg"}
+      ]}
+    ]
   }
 ];
