@@ -389,5 +389,41 @@ const EPISODES = [
         {name:"블랙 털안감 통굽 로퍼", price:44000, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgbxOnKe", img:"ootd6m_n_4_3.jpg"}
       ]}
     ]
+  },
+  {
+    tab: "OOTD07",
+    label: "OOTD 07",
+    pov: "가디건 걸치고 나갔더니 늦가을 길거리가 화보 됨",
+    looks: [
+      { name: "크림 가디건 블라우스 플리츠 룩", imgs: ["ootd7m_l1_1.jpg"], items: [
+        {name:"아이보리 케이블 크롭 니트 가디건", price:21370, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPbHbHw", img:"ootd7m_n_1_1.jpg"},
+        {name:"화이트 프릴 칼라 블라우스", price:17500, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPxyiIu", img:"ootd7m_n_1_2.jpg"},
+        {name:"블랙 밴딩 플리츠 미니스커트", price:9630, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPht0ou", img:"ootd7m_n_1_3.jpg"},
+        {name:"블랙 V컷 메리제인 플랫슈즈", price:38900, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPIhd2y", img:"ootd7m_n_1_4.jpg"},
+        {name:"아이보리 미니 바게트백", price:14900, ok:true, hide:false, url:"https://link.coupang.com/a/isx6l2tTdQ", img:"ootd7m_n_1_5.jpg"}
+      ]},
+      { name: "카멜 스웨이드 자켓 데님 미니 룩", imgs: ["ootd7m_l2_1.jpg"], items: [
+        {name:"카멜 스웨이드 카라 세미크롭 자켓", price:28500, ok:true, hide:false, url:"https://link.coupang.com/a/iwvSDpp4SG", img:"ootd7m_n_2_1.jpg"},
+        {name:"화이트 골지 슬림 세미크롭 티", price:10900, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGTfbMWG", img:"ootd7m_n_2_2.jpg"},
+        {name:"블루 데님 투톤 미니스커트", price:11500, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPSg1dc", img:"ootd7m_n_2_3.jpg"},
+        {name:"니트 레그워머", price:8940, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGPW6Hka", img:"ootd7m_n_2_4.jpg"},
+        {name:"블랙 통굽 워커 부츠 6cm", price:45000, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGSoveQm", img:"ootd7m_n_2_5.jpg"},
+        {name:"블랙 나일론 미니 로우백", price:19800, ok:true, hide:false, url:"https://link.coupang.com/a/isxNHSzvFs", img:"ootd7m_n_2_6.jpg"}
+      ]},
+      { name: "핑크 꽈배기 가디건 화이트 플리츠 룩", imgs: ["ootd7m_l3_1.jpg"], items: [
+        {name:"핑크 꽈배기 크롭 니트 가디건", price:19900, ok:true, hide:false, url:"https://link.coupang.com/a/iDoxMHAd0C", img:"ootd7m_n_3_1.jpg"},
+        {name:"화이트 골지 슬림 세미크롭 티", price:10900, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGTfbMWG", img:"ootd7m_n_3_2.jpg"},
+        {name:"화이트 하이웨스트 플리츠 미니스커트", price:9350, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGSV6PBY", img:"ootd7m_n_3_3.jpg"},
+        {name:"베이지 스웨이드 롱부츠", price:35900, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGS4o10e", img:"ootd7m_n_3_4.jpg"},
+        {name:"브라운 스웨이드 숄더백", price:17000, ok:true, hide:false, url:"https://link.coupang.com/a/iL6Os5Sd1U", img:"ootd7m_n_3_5.jpg"}
+      ]},
+      { name: "블랙 레이스 레더 미니 룩", imgs: ["ootd7m_l4_1.jpg"], items: [
+        {name:"블랙 레이스 캐미 이너", price:10500, ok:true, hide:false, url:"https://link.coupang.com/a/igmSzHY1OC", img:"ootd7m_n_4_1.jpg"},
+        {name:"블랙 H라인 레더 미니스커트", price:17900, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGSyINwG", img:"ootd7m_n_4_2.jpg"},
+        {name:"블랙 스판 니하이 롱부츠", price:47880, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGSEd6pU", img:"ootd7m_n_4_3.jpg"},
+        {name:"블랙 체인 마름모 숄더백", price:20120, ok:true, hide:false, url:"https://link.coupang.com/a/iL6OtaEwea", img:"ootd7m_n_4_4.jpg"},
+        {name:"블랙 스퀘어넥 세미크롭 니트 조끼", price:16900, ok:true, hide:false, url:"https://link.coupang.com/a/iDkGStrlts", img:"ootd7m_n_4_5.jpg"}
+      ]}
+    ]
   }
 ];
