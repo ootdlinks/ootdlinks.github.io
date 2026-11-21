@@ -169,7 +169,7 @@ const EPISODES = [
   {
     tab: "OOTD06",
     label: "OOTD 06",
-    pov: "거울 앞에서 다섯 번 갈아입다 약속에 늦음",
+    pov: "거울 앞에서 열 번 갈아입다 약속에 늦음",
     looks: [
       { name: "올블랙 레더 라이더 룩", imgs: ["ootd6y_l1_1.jpg"], items: [
         {name:"블랙 체인 미니 크로스백", price:24350, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTLeFKcm", img:"ootd6y_n_1_1.jpg"},
@@ -206,6 +206,41 @@ const EPISODES = [
         {name:"라이트 와이드 데님 롱팬츠", price:17440, ok:true, hide:false, url:"https://link.coupang.com/a/iJjf8GN5PM", img:"ootd6y_n_5_3.jpg"},
         {name:"진주 목걸이", price:5400, ok:true, hide:false, url:"https://link.coupang.com/a/igmIPyKQxg", img:"ootd6y_n_5_4.jpg"},
         {name:"블랙 레이스 새틴 슬립 캐미솔", price:20580, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvPxfie", img:"ootd6y_n_5_5.jpg"}
+      ]},
+      { name: "트위드 자켓 체크 플리츠 룩", imgs: ["ootd6y_l6_1.jpg"], items: [
+        {name:"프릴넥 리본 블라우스", price:29900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDndBfg", img:"ootd6y_n_6_1.jpg"},
+        {name:"소프트 레더 메리제인 플랫", price:17900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDGwj5E", img:"ootd6y_n_6_2.jpg"},
+        {name:"체크 플리츠 미니스커트", price:21390, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTFVszKK", img:"ootd6y_n_6_3.jpg"},
+        {name:"클래식 니삭스", price:4900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDBxWN2", img:"ootd6y_n_6_4.jpg"},
+        {name:"트위드 금장 버튼 크롭 자켓", price:58800, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTFN30zk", img:"ootd6y_n_6_5.jpg"}
+      ]},
+      { name: "울 숏코트 와이드 슬랙스 룩", imgs: ["ootd6y_l7_1.jpg"], items: [
+        {name:"스웨이드 첼시 앵클부츠", price:23900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIqSlYy", img:"ootd6y_n_7_1.jpg"},
+        {name:"세미크롭 울 숏코트", price:59800, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDhXCPA", img:"ootd6y_n_7_2.jpg"},
+        {name:"포근 니트 목도리 머플러", price:11400, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTGfTG7o", img:"ootd6y_n_7_3.jpg"},
+        {name:"하이웨이스트 와이드 슬랙스", price:17720, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTK2Xjfo", img:"ootd6y_n_7_4.jpg"},
+        {name:"슬림 목폴라 이너", price:21900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTLnXCSa", img:"ootd6y_n_7_5.jpg"}
+      ]},
+      { name: "숏패딩 데님 미니 룩", imgs: ["ootd6y_l8_1.jpg"], items: [
+        {name:"데님 A라인 미니스커트", price:22100, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfq4LddI", img:"ootd6y_n_8_1.jpg"},
+        {name:"포근 라운드 니트", price:16900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDS84R2", img:"ootd6y_n_8_2.jpg"},
+        {name:"에나멜 통굽 로퍼힐", price:40900, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfqHyZaK", img:"ootd6y_n_8_3.jpg"},
+        {name:"경량 퀼팅 크롭 숏패딩", price:25900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTF5Uc7U", img:"ootd6y_n_8_4.jpg"},
+        {name:"니트 롱 레그워머", price:9800, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfts4eaW", img:"ootd6y_n_8_5.jpg"}
+      ]},
+      { name: "기모 레더 재킷 카고 룩", imgs: ["ootd6y_l9_1.jpg"], items: [
+        {name:"나일론 미니 로우백", price:19800, ok:true, hide:false, url:"https://link.coupang.com/a/isxNHSzvFs", img:"ootd6y_n_9_1.jpg"},
+        {name:"기모 가죽 카라 숏 재킷", price:22400, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgetgWtM", img:"ootd6y_n_9_2.jpg"},
+        {name:"통굽 가죽 앵클부츠", price:22590, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghNlIUC", img:"ootd6y_n_9_3.jpg"},
+        {name:"기모 와이드 카고 팬츠", price:19500, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghVLztA", img:"ootd6y_n_9_4.jpg"},
+        {name:"골지 하이넥 니트", price:16960, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghQ42eW", img:"ootd6y_n_9_5.jpg"}
+      ]},
+      { name: "후리스 더블집업 레더 미니 룩", imgs: ["ootd6y_l10_1.jpg"], items: [
+        {name:"하이넥 더블집업 크롭 니트 가디건", price:18850, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfv4QAvY", img:"ootd6y_n_10_1.jpg"},
+        {name:"양털 후리스 숏 후드집업", price:68370, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfCydorc", img:"ootd6y_n_10_2.jpg"},
+        {name:"레더 하이웨이스트 미니스커트", price:20250, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfwafXMW", img:"ootd6y_n_10_3.jpg"},
+        {name:"청키 키높이 스니커즈", price:24860, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfB8PGBE", img:"ootd6y_n_10_4.jpg"},
+        {name:"골지 오버니삭스", price:9990, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6Xe9sHc", img:"ootd6y_n_10_5.jpg"}
       ]}
     ]
   }
