@@ -165,5 +165,48 @@ const EPISODES = [
         {name:"블랙 통굽 가죽 앵클부츠", price:22590, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghNlIUC", img:"ootd5y_n_4_4.jpg"}
       ]}
     ]
+  },
+  {
+    tab: "OOTD06",
+    label: "OOTD 06",
+    pov: "거울 앞에서 다섯 번 갈아입다 약속에 늦음",
+    looks: [
+      { name: "올블랙 레더 라이더 룩", imgs: ["ootd6y_l1_1.jpg"], items: [
+        {name:"블랙 체인 미니 크로스백", price:24350, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTLeFKcm", img:"ootd6y_n_1_1.jpg"},
+        {name:"블랙 스판 니하이 롱부츠", price:47880, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfqCMkA8", img:"ootd6y_n_1_2.jpg"},
+        {name:"블랙 하이넥 골지 니트 탑", price:21730, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghZ2M9c", img:"ootd6y_n_1_3.jpg"},
+        {name:"블랙 PU 라이더 자켓", price:35770, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghHSsO4", img:"ootd6y_n_1_4.jpg"},
+        {name:"블랙 레더 트임 미니스커트", price:19480, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTK9jTmC", img:"ootd6y_n_1_5.jpg"}
+      ]},
+      { name: "레드 가디건 브라운 플리츠 룩", imgs: ["ootd6y_l2_1.jpg"], items: [
+        {name:"아이보리 미니 바게트백", price:14900, ok:true, hide:false, url:"https://link.coupang.com/a/isx6l2tTdQ", img:"ootd6y_n_2_1.jpg"},
+        {name:"레드 브이넥 크롭 니트 가디건", price:17310, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6W3HfC8", img:"ootd6y_n_2_2.jpg"},
+        {name:"블랙 더블버클 메리제인 로퍼", price:17640, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6RqyDDM", img:"ootd6y_n_2_3.jpg"},
+        {name:"브라운 모직 플리츠 미니스커트", price:13900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIM037A", img:"ootd6y_n_2_4.jpg"},
+        {name:"화이트 골지 오버니삭스", price:9990, ok:true, hide:false, url:"https://link.coupang.com/a/iFo6Xe9sHc", img:"ootd6y_n_2_5.jpg"},
+        {name:"블랙 슬림 목폴라 이너", price:21900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTLnXCSa", img:"ootd6y_n_2_6.jpg"}
+      ]},
+      { name: "블랙 롱코트 머플러 룩", imgs: ["ootd6y_l3_1.jpg"], items: [
+        {name:"블랙 털 7cm 통굽 앵클부츠", price:44900, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgeOBnR6", img:"ootd6y_n_3_1.jpg"},
+        {name:"블랙 울 롱코트", price:17010, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgehORWe", img:"ootd6y_n_3_2.jpg"},
+        {name:"브라운 반목 골지 니트", price:17900, ok:true, hide:false, url:"https://link.coupang.com/a/iJjghCKrLg", img:"ootd6y_n_3_3.jpg"},
+        {name:"그레이 울혼방 대형 머플러", price:19900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIWa6TY", img:"ootd6y_n_3_4.jpg"},
+        {name:"블랙 기모 플리츠 롱스커트", price:27500, ok:true, hide:false, url:"https://link.coupang.com/a/iJjgeJJF1w", img:"ootd6y_n_3_5.jpg"}
+      ]},
+      { name: "그레이 후드집업 레이스 캐미 룩", imgs: ["ootd6y_l4_1.jpg"], items: [
+        {name:"화이트 레이스 브이넥 캐미솔", price:12920, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfwlgNqe", img:"ootd6y_n_4_1.jpg"},
+        {name:"그레이 오버핏 후드집업", price:30700, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfCorCLc", img:"ootd6y_n_4_2.jpg"},
+        {name:"블랙 하이웨이스트 데님 숏팬츠", price:18740, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvHQ4YK", img:"ootd6y_n_4_3.jpg"},
+        {name:"블랙 청키 키높이 스니커즈", price:24860, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfB8PGBE", img:"ootd6y_n_4_4.jpg"},
+        {name:"블랙 니트 레그워머", price:8300, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvZHhxk", img:"ootd6y_n_4_5.jpg"}
+      ]},
+      { name: "새틴 슬립 숏 가디건 데님 룩", imgs: ["ootd6y_l5_1.jpg"], items: [
+        {name:"블랙 웨스턴 버클 롱부츠", price:37410, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvUvCzQ", img:"ootd6y_n_5_1.jpg"},
+        {name:"블랙 브이넥 슬림 숏 니트 가디건", price:15300, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvD7LEq", img:"ootd6y_n_5_2.jpg"},
+        {name:"라이트 와이드 데님 롱팬츠", price:17440, ok:true, hide:false, url:"https://link.coupang.com/a/iJjf8GN5PM", img:"ootd6y_n_5_3.jpg"},
+        {name:"진주 목걸이", price:5400, ok:true, hide:false, url:"https://link.coupang.com/a/igmIPyKQxg", img:"ootd6y_n_5_4.jpg"},
+        {name:"블랙 레이스 새틴 슬립 캐미솔", price:20580, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvPxfie", img:"ootd6y_n_5_5.jpg"}
+      ]}
+    ]
   }
 ];
