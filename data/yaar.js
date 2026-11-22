@@ -214,14 +214,14 @@ const EPISODES = [
         {name:"클래식 니삭스", price:4900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTDBxWN2", img:"ootd6y_n_6_4.jpg"},
         {name:"트위드 금장 버튼 크롭 자켓", price:58800, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTFN30zk", img:"ootd6y_n_6_5.jpg"}
       ]},
-      { name: "트위드 자켓 랩 미니 첼시 룩", imgs: ["ootd6y_l7_1.jpg"], items: [
-        {name:"크림 트위드 금장 버튼 크롭 자켓", price:57900, ok:true, hide:false, url:"https://link.coupang.com/a/iSZ2EMe1g4", img:"ootd6y_n_7_1.jpg"},
-        {name:"크림 슬림 골지 폴라티", price:13000, ok:true, hide:false, url:"https://link.coupang.com/a/iSZ2ERJpGS", img:"ootd6y_n_7_2.jpg"},
+      { name: "퍼 크롭 가디건 랩 미니 첼시 룩", imgs: ["ootd6y_l7_1.jpg"], items: [
+        {name:"화이트 퍼 커프스 트위드 크롭 자켓", price:118700, ok:true, hide:false, url:"https://link.coupang.com/a/iS0I4MQLhQ", img:"ootd6y_n_7_1.jpg"},
+        {name:"연회색 골지 하프터틀 니트", price:20900, ok:true, hide:false, url:"https://link.coupang.com/a/iS0I4R5Uyq", img:"ootd6y_n_7_2.jpg"},
         {name:"블랙 모직 랩 미니스커트", price:26900, ok:true, hide:false, url:"https://link.coupang.com/a/iSZ2EXg1mK", img:"ootd6y_n_7_3.jpg"},
         {name:"스웨이드 첼시 앵클부츠", price:23900, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTIqSlYy", img:"ootd6y_n_7_4.jpg"}
       ]},
       { name: "니트 바디콘 원피스 롱부츠 룩", imgs: ["ootd6y_l8_1.jpg"], items: [
-        {name:"카멜 꽈배기 니트 바디콘 미니 원피스", price:41300, ok:true, hide:false, url:"https://link.coupang.com/a/iSZ2E1WYnc", img:"ootd6y_n_8_1.jpg"},
+        {name:"꽈배기 슬림 바디콘 니트 원피스(색상은 상품 페이지에서 확인)", price:28090, ok:true, hide:false, url:"https://link.coupang.com/a/iS0I4Yedb2", img:"ootd6y_n_8_1.jpg"},
         {name:"벨트 버클 웨스턴 롱부츠", price:37410, ok:true, hide:false, url:"https://link.coupang.com/a/iGDfvUvCzQ", img:"ootd6y_n_8_2.jpg"},
         {name:"체인 미니 크로스백", price:24350, ok:true, hide:false, url:"https://link.coupang.com/a/iGiTLeFKcm", img:"ootd6y_n_8_3.jpg"}
       ]},
